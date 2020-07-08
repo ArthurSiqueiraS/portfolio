@@ -1,5 +1,5 @@
 <template>
-  <v-card id="landing">
+  <v-sheet id="landing">
     <div
       style="
         position: absolute;
@@ -46,7 +46,7 @@
       click-mode="repulse"
     >
     </vue-particles>
-  </v-card>
+  </v-sheet>
 </template>
 <script>
 export default {

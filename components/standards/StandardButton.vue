@@ -2,7 +2,7 @@
   <v-hover v-slot:default="{ hover }">
     <v-btn
       v-bind="$attrs"
-      :color="hover ? 'primary' : 'accent'"
+      :color="hover ? textHoverColor : textColor"
       :style="{
         transition: '0.1s',
       }"
@@ -14,3 +14,17 @@
     </v-btn>
   </v-hover>
 </template>
+<script>
+export default {
+  props: {
+    textColor: {
+      type: String,
+      default: 'accent',
+    },
+    textHoverColor: {
+      type: String,
+      default: 'primary',
+    },
+  },
+}
+</script>
