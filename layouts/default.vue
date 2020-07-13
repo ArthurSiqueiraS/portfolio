@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-toolbar
+      id="toolbar"
       prominent
       color="transparent"
       :absolute="landing"
@@ -20,23 +21,50 @@
           {{ item.name }}
         </StandardButton>
       </div>
-      <v-tooltip color="primary" left>
-        <template v-slot:activator="{ on }">
-          <StandardButton
-            class="mr-4"
-            style="position: absolute; right: 0;"
-            :small="$vuetify.breakpoint.xsOnly"
-            icon
-            v-on="on"
-            @click="$vuetify.theme.dark = !$vuetify.theme.dark"
+      <div class="d-flex align-center" style="position: absolute; right: 0;">
+        <v-tooltip color="primary" left>
+          <template v-slot:activator="{ on }">
+            <StandardButton
+              :small="$vuetify.breakpoint.xsOnly"
+              icon
+              v-on="on"
+              @click="changeTheme"
+            >
+              <v-icon :small="$vuetify.breakpoint.xsOnly">
+                wb_sunny
+              </v-icon>
+            </StandardButton>
+          </template>
+          {{ $t('changeTheme') }}
+        </v-tooltip>
+        <v-hover v-slot:default="{ hover }">
+          <v-select
+            id="lang-select"
+            solo
+            hide-details
+            dense
+            flat
+            append-icon="none"
+            class="rounded-pill text-center"
+            style="width: 120px;"
+            :value="$i18n.locale"
+            :items="$i18n.locales"
+            item-text="name"
+            item-value="code"
+            @change="(locale) => $router.push(switchLocalePath(locale))"
           >
-            <v-icon :small="$vuetify.breakpoint.xsOnly">
-              wb_sunny
-            </v-icon>
-          </StandardButton>
-        </template>
-        Alternar tema
-      </v-tooltip>
+            <template v-slot:selection="{ item }">
+              <div
+                class="v-btn"
+                :class="hover ? 'primary--text' : 'accent--text'"
+                style="transtion: 0.1s; font-size: 0.85rem;"
+              >
+                {{ item.name }}
+              </div>
+            </template>
+          </v-select>
+        </v-hover>
+      </div>
     </v-toolbar>
     <v-main>
       <nuxt />
@@ -44,12 +72,10 @@
     <v-footer
       :color="darkTheme ? 'secondary' : 'accent'"
       class="white--text d-flex justify-center pa-10"
-      absolute
-      app
     >
       <!-- <span>&copy; {{ new Date().getFullYear() }}</span> -->
       <div class="d-flex flex-column align-center">
-        <div class="title mb-2">Find me on:</div>
+        <div class="title mb-2">{{ $t('findMe') }}</div>
         <div>
           <v-tooltip
             v-for="network in networks"
@@ -93,12 +119,7 @@ import { mdiGithub, mdiGitlab, mdiLinkedin, mdiInstagram } from '@mdi/js'
 export default {
   data() {
     return {
-      landing: this.$route.path === '/',
-      navigationMenu: [
-        { name: 'Home' },
-        { name: 'Portfolio' },
-        { name: 'About me' },
-      ],
+      landing: this.$route.name.includes('index'),
       networks: [
         {
           icon: mdiGithub,
@@ -128,9 +149,29 @@ export default {
     }
   },
   computed: {
+    navigationMenu() {
+      return [
+        { name: this.$t('home') },
+        { name: this.$t('portfolio') },
+        { name: this.$t('about') },
+      ]
+    },
     darkTheme() {
       return this.$vuetify.theme.dark
     },
   },
+  methods: {
+    changeTheme() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+      this.$setCookie('theme', this.darkTheme ? 'dark' : 'light')
+    },
+  },
 }
 </script>
+<style lang="scss">
+#toolbar {
+  .v-input__slot {
+    background: transparent;
+  }
+}
+</style>

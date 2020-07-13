@@ -50,7 +50,11 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['@/plugins/helpers', '@/plugins/vueParticles'],
+  plugins: [
+    '@/plugins/helpers',
+    '@/plugins/vueParticles',
+    '@/plugins/cookieFactory',
+  ],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -72,7 +76,16 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     'nuxt-webfontloader',
+    'nuxt-i18n',
   ],
+  i18n: {
+    locales: [
+      { code: 'en', file: 'en-US.js', name: 'ENGLISH' },
+      { code: 'pt', file: 'pt-BR.js', name: 'PORTUGUÊS' },
+    ],
+    lazy: true,
+    langDir: 'lang/',
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
@@ -86,6 +99,9 @@ export default {
     treeShake: true,
     customVariables: ['~/assets/variables.scss'],
     theme: {
+      options: {
+        customProperties: true,
+      },
       themes,
     },
     defaultAssets: {
