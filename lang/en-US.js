@@ -5,4 +5,7 @@ export default {
   title: 'Full-stack developer',
   findMe: 'Find me on:',
   changeTheme: 'Change theme',
+  details: 'Details',
+  frontEnd: 'Front End',
+  backEnd: 'Back End',
 }

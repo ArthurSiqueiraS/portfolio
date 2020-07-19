@@ -1,3 +1,7 @@
 .v-btn::before {
   background-color: transparent !important;
 }
+
+.v-dialog {
+  border-radius: 0 !important;
+}

@@ -2,8 +2,8 @@ import colors from 'vuetify/es5/util/colors'
 
 const themes = {
   light: {
-    primary: '#00E0A1',
-    accent: '#2F495E',
+    primary: '#41B883',
+    accent: '#35495E',
     secondary: '#FFFFFF',
     info: colors.teal.lighten1,
     warning: colors.amber.base,
@@ -83,6 +83,10 @@ export default {
       { code: 'en', file: 'en-US.js', name: 'ENGLISH' },
       { code: 'pt', file: 'pt-BR.js', name: 'PORTUGUÊS' },
     ],
+    defaultLocale: 'en',
+    vueI18n: {
+      fallbackLocale: 'en',
+    },
     lazy: true,
     langDir: 'lang/',
   },

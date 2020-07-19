@@ -5,4 +5,5 @@ export default {
   title: 'Desenvolvedor full-stack',
   findMe: 'Encontre-me em:',
   changeTheme: 'Alternar tema',
+  details: 'Detalhes',
 }

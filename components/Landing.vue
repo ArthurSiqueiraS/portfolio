@@ -1,11 +1,11 @@
 <template>
-  <v-sheet id="landing">
+  <v-sheet id="landing" style="position: relative;">
     <div
       style="
         position: absolute;
         left: 50%;
-        top: 45%;
-        transform: translate(-50%, -50%);
+        top: 50%;
+        transform: translate(-50%, -80%);
       "
       class="d-flex flex-column align-center"
     >

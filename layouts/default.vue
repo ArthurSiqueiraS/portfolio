@@ -115,8 +115,12 @@
 
 <script>
 import { mdiGithub, mdiGitlab, mdiLinkedin, mdiInstagram } from '@mdi/js'
+import StandardButton from '@/components/standards/StandardButton'
 
 export default {
+  components: {
+    StandardButton,
+  },
   data() {
     return {
       landing: this.$route.name.includes('index'),
