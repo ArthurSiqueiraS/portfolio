@@ -11,7 +11,7 @@
     >
       <div
         style="width: 100%; height: 100%;"
-        class="d-flex justify-center align-center"
+        class="d-flex justify-center align-center mt-4"
       >
         <StandardButton
           v-for="item in navigationMenu"

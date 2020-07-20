@@ -1,7 +1,7 @@
 <template>
   <v-sheet id="landing" style="position: relative;">
     <div
-      class="d-flex align-center ml-2 mt-2"
+      class="d-flex align-center ml-2 mt-3"
       style="position: absolute; z-index: 999;"
     >
       <StandardButton class="px-0" @click="animations = !animations">
@@ -19,7 +19,7 @@
       style="
         position: absolute;
         left: 50%;
-        top: 50%;
+        top: 55%;
         transform: translate(-50%, -80%);
         z-index: 1;
       "
