@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Landing />
-    <Portfolio />
+    <Landing class="secondary" />
+    <Portfolio class="my-16" />
   </div>
 </template>
 <script>

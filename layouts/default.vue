@@ -21,15 +21,37 @@
           {{ item.name }}
         </StandardButton>
       </div>
-      <div class="d-flex align-center" style="position: absolute; right: 0;">
+      <div
+        class="d-flex align-center mr-4 mt-2"
+        style="position: absolute; right: 0;"
+      >
+        <v-menu>
+          <template v-slot:activator="{ on }">
+            <v-tooltip color="primary" left>
+              <template v-slot:activator="tooltipProps">
+                <StandardButton
+                  class="px-1 mx-2"
+                  v-on="{ ...on, ...tooltipProps.on }"
+                  >{{ $i18n.locale }}</StandardButton
+                >
+              </template>
+              {{ $t('chooseLanguage') }}
+            </v-tooltip>
+          </template>
+          <v-list class="py-0">
+            <v-list-item
+              v-for="locale in $i18n.locales"
+              :key="locale.code"
+              :to="switchLocalePath(locale.code)"
+              class="primary--text"
+            >
+              {{ locale.name }}
+            </v-list-item>
+          </v-list>
+        </v-menu>
         <v-tooltip color="primary" left>
           <template v-slot:activator="{ on }">
-            <StandardButton
-              :small="$vuetify.breakpoint.xsOnly"
-              icon
-              v-on="on"
-              @click="changeTheme"
-            >
+            <StandardButton class="px-1 mx-2" v-on="on" @click="changeTheme">
               <v-icon :small="$vuetify.breakpoint.xsOnly">
                 wb_sunny
               </v-icon>
@@ -37,38 +59,12 @@
           </template>
           {{ $t('changeTheme') }}
         </v-tooltip>
-        <v-hover v-slot:default="{ hover }">
-          <v-select
-            id="lang-select"
-            solo
-            hide-details
-            dense
-            flat
-            append-icon="none"
-            class="rounded-pill text-center"
-            style="width: 120px;"
-            :value="$i18n.locale"
-            :items="$i18n.locales"
-            item-text="name"
-            item-value="code"
-            @change="(locale) => $router.push(switchLocalePath(locale))"
-          >
-            <template v-slot:selection="{ item }">
-              <div
-                class="v-btn"
-                :class="hover ? 'primary--text' : 'accent--text'"
-                style="transtion: 0.1s; font-size: 0.85rem;"
-              >
-                {{ item.name }}
-              </div>
-            </template>
-          </v-select>
-        </v-hover>
       </div>
     </v-toolbar>
     <v-main>
       <nuxt />
     </v-main>
+    <v-divider v-if="darkTheme" class="mx-12" />
     <v-footer
       :color="darkTheme ? 'secondary' : 'accent'"
       class="white--text d-flex justify-center pa-10"
@@ -115,12 +111,8 @@
 
 <script>
 import { mdiGithub, mdiGitlab, mdiLinkedin, mdiInstagram } from '@mdi/js'
-import StandardButton from '@/components/standards/StandardButton'
 
 export default {
-  components: {
-    StandardButton,
-  },
   data() {
     return {
       landing: this.$route.name.includes('index'),

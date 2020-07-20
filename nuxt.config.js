@@ -28,6 +28,7 @@ export default {
     port: 8080,
     host: '0.0.0.0',
   },
+  loading: { color: themes.light.accent },
   head: {
     titleTemplate: process.env.npm_package_title,
     title: process.env.npm_package_title,
@@ -80,8 +81,8 @@ export default {
   ],
   i18n: {
     locales: [
-      { code: 'en', file: 'en-US.js', name: 'ENGLISH' },
-      { code: 'pt', file: 'pt-BR.js', name: 'PORTUGUÊS' },
+      { code: 'en', file: 'en-US.js', name: 'English' },
+      { code: 'pt', file: 'pt-BR.js', name: 'Português' },
     ],
     defaultLocale: 'en',
     vueI18n: {

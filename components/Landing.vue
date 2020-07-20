@@ -1,11 +1,27 @@
 <template>
   <v-sheet id="landing" style="position: relative;">
     <div
+      class="d-flex align-center ml-2 mt-2"
+      style="position: absolute; z-index: 999;"
+    >
+      <StandardButton class="px-0" @click="animations = !animations">
+        <v-switch
+          v-model="animations"
+          readonly
+          hide-details
+          dense
+          class="ma-0"
+        />
+        {{ $t('animations') }}
+      </StandardButton>
+    </div>
+    <div
       style="
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -80%);
+        z-index: 1;
       "
       class="d-flex flex-column align-center"
     >
@@ -31,29 +47,42 @@
         :src="require('@/assets/images/landing_profile.jpg')"
       /> -->
     </div>
-    <vue-particles
-      :key="key"
-      class="secondary"
-      style="height: 100vh;"
-      :color="this.$vuetify.theme.currentTheme.primary"
-      :particle-opacity="darkTheme ? 0.6 : 0.3"
-      :line-opacity="darkTheme ? 0.4 : 0.2"
-      :particles-number="mobile ? 50 : 35"
-      :shape-type="darkTheme ? 'circle' : 'triangle'"
-      :particle-size="darkTheme ? 7 : 9"
-      :lines-color="this.$vuetify.theme.currentTheme.accent"
-      :lines-distance="175"
-      :move-speed="darkTheme ? 3 : 5"
-      click-mode="repulse"
-    >
-    </vue-particles>
+    <div style="height: 100vh;">
+      <vue-particles
+        v-if="animations"
+        :key="key"
+        style="height: 100%;"
+        class="secondary"
+        :color="this.$vuetify.theme.currentTheme.primary"
+        :particle-opacity="darkTheme ? 0.6 : 0.3"
+        :line-opacity="darkTheme ? 0.4 : 0.2"
+        :particles-number="mobile ? 50 : 35"
+        :shape-type="darkTheme ? 'circle' : 'triangle'"
+        :particle-size="darkTheme ? 7 : 9"
+        :lines-color="this.$vuetify.theme.currentTheme.accent"
+        :lines-distance="175"
+        :move-speed="darkTheme ? 3 : 5"
+        click-mode="repulse"
+      >
+      </vue-particles>
+      <v-img
+        v-else
+        height="100%"
+        :src="darkTheme ? staticBackgroundDark : staticBackgroundLight"
+      />
+    </div>
   </v-sheet>
 </template>
 <script>
 export default {
-  data: () => ({
-    key: 0,
-  }),
+  data() {
+    return {
+      key: 0,
+      animations: !this.$getCookie('static_landing'),
+      staticBackgroundLight: require('@/assets/images/static_landing_light.png'),
+      staticBackgroundDark: require('@/assets/images/static_landing_dark.png'),
+    }
+  },
   computed: {
     mobile() {
       return this.$vuetify.breakpoint.mdAndDown
@@ -65,6 +94,13 @@ export default {
   watch: {
     darkTheme() {
       this.key++
+    },
+    animations(on) {
+      if (on) {
+        this.$deleteCookie('static_landing')
+      } else {
+        this.$setCookie('static_landing', true)
+      }
     },
   },
 }

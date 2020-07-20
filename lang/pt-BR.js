@@ -4,6 +4,8 @@ export default {
   about: 'Sobre mim',
   title: 'Desenvolvedor full-stack',
   findMe: 'Encontre-me em:',
+  animations: 'Animações',
+  chooseLanguage: 'Escolher idioma',
   changeTheme: 'Alternar tema',
   details: 'Detalhes',
 }
