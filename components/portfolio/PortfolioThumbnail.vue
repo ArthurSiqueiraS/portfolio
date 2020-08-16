@@ -6,6 +6,11 @@
     close-delay="100"
   >
     <div
+      v-click-outside="
+        () => {
+          if (mobile) details = false
+        }
+      "
       :style="{
         position: 'relative',
         height: '100%',
@@ -52,7 +57,7 @@
         </div>
         <v-spacer />
         <div>
-          <v-dialog max-width="600px">
+          <v-dialog max-width="800px">
             <template v-slot:activator="{ on }">
               <v-btn
                 width="100px"
@@ -64,8 +69,8 @@
                 >{{ $t('details') }}</v-btn
               >
             </template>
-            <v-sheet tile>
-              Detalhes
+            <v-sheet tile width="100%" height="100%">
+              <ProjectDetails />
             </v-sheet>
           </v-dialog>
           <v-btn

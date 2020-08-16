@@ -29,13 +29,11 @@
 </template>
 <script>
 import { Carousel3d, Slide } from 'vue-carousel-3d'
-import PortfolioThumbnail from '@/components/portfolio/PortfolioThumbnail'
 
 export default {
   components: {
     Carousel3d,
     Slide,
-    PortfolioThumbnail,
   },
   data() {
     return {

@@ -8,6 +8,11 @@ export default {
   chooseLanguage: 'Choose language',
   changeTheme: 'Change theme',
   details: 'Details',
-  frontEnd: 'Front End',
-  backEnd: 'Back End',
+  frontEnd: 'Front-end',
+  backEnd: 'Back-end',
+  project: {
+    employment: 'Employment',
+    occupations: 'Occupations',
+    status: 'Status',
+  },
 }
