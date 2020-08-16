@@ -91,12 +91,12 @@ export default {
       project,
       panels: [
         {
-          title: 'Highlights',
+          title: this.$t('highlights'),
           component: ProjectHighlights,
           props: { highlights: project.highlights },
         },
         {
-          title: 'Technologies used',
+          title: this.$t('technologiesUsed'),
           component: ProjectTechnologies,
           props: {
             frontEnd: project.frontEnd,
@@ -104,7 +104,7 @@ export default {
           },
         },
         {
-          title: 'Project info',
+          title: this.$t('projectInfo'),
           component: ProjectInfo,
           props: { project },
         },

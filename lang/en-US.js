@@ -10,6 +10,9 @@ export default {
   details: 'Details',
   frontEnd: 'Front-end',
   backEnd: 'Back-end',
+  highlights: 'Highlights',
+  technologiesUsed: 'Technologies used',
+  projectInfo: 'Project info',
   project: {
     employment: 'Employment',
     occupations: 'Occupations',
