@@ -14,16 +14,18 @@
         :src="image"
       />
     </v-carousel>
-    <div class="primary--text text-h5 pa-8">
+    <div
+      class="primary--text text-h5 pa-8 d-flex justify-center justify-md-start text-center text-md-left"
+    >
       {{ project.title }}
     </div>
     <v-row no-gutters class="accent--text pa-4" align="center">
-      <v-col cols="3" class="text-center">
+      <v-col cols="12" md="3" class="text-center">
         <a :href="project.link" target="_blank">
           <img :src="project.logo" height="100" />
         </a>
       </v-col>
-      <v-col cols="9" class="px-4 text-justify">
+      <v-col cols="12" md="9" class="px-4 text-justify">
         {{ project.description }} {{ project.description }}
         {{ project.description }} {{ project.description }}
         {{ project.description }} {{ project.description }}
@@ -72,11 +74,13 @@ export default {
           image: 'https://www.w3schools.com/w3css/img_lights.jpg',
           title: 'Event videos',
           text: 'bla bla bla bla bla bla bla bla bla bla bla',
+          icon: 'play_arrow',
         },
         {
           image: 'https://www.w3schools.com/w3css/img_lights.jpg',
           title: 'solo project',
           text: 'bla bla bla bla bla bla bla bla bla bla bla',
+          icon: 'person',
         },
       ],
       status: ['Launched'],
