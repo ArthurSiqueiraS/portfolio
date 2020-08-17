@@ -14,6 +14,7 @@
         :height="$vuetify.breakpoint.smOnly ? '75%' : '100%'"
         width="auto"
         contain
+        :style="'border: 1px solid ' + $vuetify.theme.currentTheme.primary"
         :src="highlight.image"
       />
       <div

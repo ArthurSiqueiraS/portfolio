@@ -72,7 +72,7 @@
       <!-- <span>&copy; {{ new Date().getFullYear() }}</span> -->
       <div class="d-flex flex-column align-center">
         <div class="title mb-2">{{ $t('findMe') }}</div>
-        <div>
+        <div id="networks">
           <v-tooltip
             v-for="network in networks"
             :key="network.name"
@@ -95,10 +95,12 @@
             {{ network.name }}
           </v-tooltip>
         </div>
-        <div class="my-2">
-          <v-icon color="white" class="mr-1">mail</v-icon
-          >asesilva@inf.ufpel.edu.br
-        </div>
+        <a
+          :href="'mailto:' + email"
+          class="my-2 text-decoration-none white--text"
+        >
+          <v-icon color="white" class="mr-1">mail</v-icon>{{ email }}
+        </a>
         <v-img
           width="100"
           class="mt-5"
@@ -116,6 +118,7 @@ export default {
   data() {
     return {
       landing: this.$route.name.includes('index'),
+      email: 'dev.arthusiqueira@gmail.com',
       networks: [
         {
           icon: mdiGithub,

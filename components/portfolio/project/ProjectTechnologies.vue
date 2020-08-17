@@ -9,8 +9,12 @@
           cols="12"
           class="px-0 py-4 px-sm-4 d-flex flex-wrap justify-center justify-sm-start"
         >
-          <div v-for="(tech, index) in stack.stack" :key="tech" class="d-flex">
-            <v-chip class="secondary--text mb-2" color="primary">
+          <div
+            v-for="(tech, index) in stack.stack"
+            :key="tech"
+            class="d-flex align-center mb-2"
+          >
+            <v-chip class="secondary--text" color="primary">
               {{ tech }}
             </v-chip>
             <v-icon

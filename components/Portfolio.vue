@@ -1,6 +1,6 @@
 <template>
   <div class="text-center d-flex flex-column">
-    <h1 class="accent--text">{{ $t('portfolio') }}</h1>
+    <h1 class="accent--text mx-4">{{ $t('pastWork') }}</h1>
     <carousel3d
       ref="carousel"
       :controls-visible="mobile"
