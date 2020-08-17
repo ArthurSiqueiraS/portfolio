@@ -21,4 +21,5 @@ export default {
     occupations: 'Occupations',
     status: 'Status',
   },
+  technologiesAndSkills: 'Technologies & Skills',
 }

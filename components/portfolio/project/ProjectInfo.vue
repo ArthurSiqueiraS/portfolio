@@ -6,8 +6,9 @@
       align="center"
       justify="space-between"
     >
-      <span class="title font-weight-bold">{{ key }}:</span
-      ><span>{{ value }}</span>
+      <span class="title font-weight-bold">{{ key }}:</span>
+      <a v-if="key == 'Link'" :href="value" target="_blank">{{ value }}</a>
+      <span v-else>{{ value }}</span>
     </v-row>
   </div>
 </template>
@@ -26,6 +27,9 @@ export default {
       ' / '
     )
     details[this.$t('project.status')] = this.project.status.join(' / ')
+    if (this.project.link) {
+      details.Link = this.project.link
+    }
 
     return {
       details,
