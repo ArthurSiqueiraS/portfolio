@@ -1,9 +1,5 @@
 export default {
-  home: 'Início',
-  portfolio: 'Portfólio',
-  about: 'Sobre mim',
   title: 'Desenvolvedor full-stack',
-  contactMe: 'Entre em contato',
   viewResume: 'Veja meu currículo',
   findMe: 'Encontre-me em:',
   animations: 'Animações',

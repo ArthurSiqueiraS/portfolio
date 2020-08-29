@@ -1,5 +1,5 @@
 <template>
-  <v-row no-gutters justify="center accent--text">
+  <v-row no-gutters justify="center" class="accent--text">
     <v-col cols="12" lg="10" xl="6">
       <v-row no-gutters class="pa-md-8 pa-lg-0">
         <v-col
@@ -27,24 +27,21 @@
           the release of Letraset sheets containing Lorem Ipsum passages, and
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
-          <div class="mt-8">
+          <div class="mt-8 d-sm-flex">
             <v-btn
               :block="mobile"
               tile
               depressed
               color="primary"
-              class="mb-2 mb-sm-0 mr-sm-2"
-              @click="
-                $vuetify.goTo('#networks', {
-                  duration: 750,
-                  easing: 'easeInCubic',
-                })
-              "
-              >{{ $t('contactMe') }}</v-btn
+              class="mb-4 mb-sm-0 mr-sm-4"
             >
-            <v-btn :block="mobile" tile outlined color="primary">{{
-              $t('viewResume')
-            }}</v-btn>
+              {{ $t('viewResume') }}
+            </v-btn>
+            <div class="contact-icons d-flex justify-center">
+              <v-icon large color="primary">email</v-icon>
+              <v-icon large color="primary">{{ mdiLinkedin }}</v-icon>
+              <v-icon large color="primary">{{ mdiInstagram }}</v-icon>
+            </div>
           </div>
         </v-col>
       </v-row>
@@ -52,7 +49,15 @@
   </v-row>
 </template>
 <script>
+import { mdiLinkedin, mdiInstagram } from '@mdi/js'
+
 export default {
+  data() {
+    return {
+      mdiLinkedin,
+      mdiInstagram,
+    }
+  },
   computed: {
     mobile() {
       return this.$vuetify.breakpoint.xsOnly
@@ -63,3 +68,15 @@ export default {
   },
 }
 </script>
+<style lang="scss">
+.contact-icons {
+  .v-icon {
+    margin: 0 8px;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale3d(1.2, 1.2, 1.2);
+    }
+  }
+}
+</style>

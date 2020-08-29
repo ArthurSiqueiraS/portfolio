@@ -10,18 +10,6 @@
       :style="{ zIndex: landing && 999 }"
     >
       <div
-        style="width: 100%; height: 100%;"
-        class="d-flex justify-center align-center mt-4"
-      >
-        <StandardButton
-          v-for="item in navigationMenu"
-          :key="item.name"
-          :small="$vuetify.breakpoint.xsOnly"
-        >
-          {{ item.name }}
-        </StandardButton>
-      </div>
-      <div
         class="d-flex align-center mr-4 mt-2"
         style="position: absolute; right: 0;"
       >
@@ -148,13 +136,6 @@ export default {
     }
   },
   computed: {
-    navigationMenu() {
-      return [
-        { name: this.$t('home') },
-        { name: this.$t('portfolio') },
-        { name: this.$t('about') },
-      ]
-    },
     darkTheme() {
       return this.$vuetify.theme.dark
     },

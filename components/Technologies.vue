@@ -14,18 +14,6 @@
         </v-col>
       </v-row>
     </v-col>
-    <v-row no-gutters justify="center">
-      <v-col
-        v-for="skill in skills"
-        :key="skill.name"
-        cols="12"
-        sm="6"
-        class="d-flex justify-center align-center subtitle-1 accent--text my-2"
-      >
-        <v-icon large left color="accent">{{ skill.icon }}</v-icon
-        >{{ skill.name }}
-      </v-col>
-    </v-row>
   </div>
 </template>
 <script>
@@ -78,12 +66,6 @@ export default {
           logo:
             'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1184px-Vue.js_Logo_2.svg.png',
         },
-      ],
-      skills: [
-        { name: 'Autonomy', icon: 'person' },
-        { name: 'Programming Logic', icon: 'person' },
-        { name: 'Communication', icon: 'person' },
-        { name: 'Efficiency', icon: 'person' },
       ],
     }
   },
