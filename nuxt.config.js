@@ -53,6 +53,7 @@ export default {
    */
   plugins: [
     '@/plugins/helpers',
+    '@/plugins/representers',
     '@/plugins/vueParticles',
     '@/plugins/cookieFactory',
   ],

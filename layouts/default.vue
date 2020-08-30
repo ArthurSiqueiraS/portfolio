@@ -2,17 +2,20 @@
   <v-app>
     <v-toolbar
       id="toolbar"
-      prominent
       color="transparent"
-      :absolute="landing"
-      flat
+      absolute
       width="100%"
+      flat
       :style="{ zIndex: landing && 999 }"
     >
-      <div
-        class="d-flex align-center mr-4 mt-2"
-        style="position: absolute; right: 0;"
-      >
+      <n-link v-if="$route.path != '/' && $route.path != '/pt'" to="/">
+        <img
+          height="30px"
+          :src="require('@/assets/images/portfolio_logo.png')"
+        />
+      </n-link>
+      <v-spacer />
+      <div class="d-flex align-center">
         <v-menu>
           <template v-slot:activator="{ on }">
             <v-tooltip color="primary" left>

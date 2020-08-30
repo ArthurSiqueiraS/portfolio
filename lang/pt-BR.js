@@ -15,5 +15,15 @@ export default {
     occupations: 'Ocupações',
     status: 'Status',
   },
+  resume: {
+    download: 'Baixar PDF',
+    summary: 'Resumo',
+    experience: 'Experiência',
+    education: 'Educação',
+    awards: 'Prêmios',
+    contact: 'Contato',
+    skills: 'Conhecimentos',
+    languages: 'Idiomas',
+  },
   technologiesAndSkills: 'Tecnologias & Habilidades',
 }

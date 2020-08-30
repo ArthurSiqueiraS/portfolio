@@ -17,5 +17,15 @@ export default {
     occupations: 'Occupations',
     status: 'Status',
   },
+  resume: {
+    download: 'Download PDF',
+    summary: 'Summary',
+    experience: 'Experience',
+    education: 'Education',
+    awards: 'Awards',
+    contact: 'Contact',
+    skills: 'Skills',
+    languages: 'Languages',
+  },
   technologiesAndSkills: 'Technologies & Skills',
 }

@@ -34,6 +34,7 @@
               depressed
               color="primary"
               class="mb-4 mb-sm-0 mr-sm-4"
+              to="/resume"
             >
               {{ $t('viewResume') }}
             </v-btn>
