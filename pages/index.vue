@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Landing class="secondary" />
-    <Summary class="mt-16 pb-16" />
-    <Portfolio class="my-16" />
-    <Technologies class="my-16" />
+    <Landing class="secondary mb-8" />
+    <Summary class="py-16" />
+    <Portfolio class="py-16" />
+    <Technologies class="py-16" />
   </div>
 </template>
