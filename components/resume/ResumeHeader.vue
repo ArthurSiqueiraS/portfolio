@@ -5,7 +5,7 @@
       <h2 class="accent--text">{{ label }}</h2>
       <h5 class="info--text">{{ location }}</h5>
     </v-col>
-    <v-col cols="12" md="6" class="text-right mt-8 mt-md-0">
+    <v-col cols="12" md="6" class="text-right mt-8 mt-md-0 hide-print">
       <v-hover v-slot:default="{ hover }">
         <v-btn
           depressed
@@ -18,6 +18,7 @@
               ? '1px solid ' + $vuetify.theme.currentTheme.primary
               : null,
           }"
+          @click="downloadPdf"
         >
           {{ $t('resume.download') }}
         </v-btn>
@@ -34,6 +35,11 @@ export default {
       label,
       location,
     }
+  },
+  methods: {
+    downloadPdf() {
+      window.print()
+    },
   },
 }
 </script>

@@ -2,6 +2,7 @@
   <v-app>
     <v-toolbar
       id="toolbar"
+      class="hide-print"
       color="transparent"
       absolute
       width="100%"
@@ -56,49 +57,51 @@
       <nuxt />
     </v-main>
     <v-divider v-if="darkTheme" class="mx-12" />
-    <v-footer
-      :color="darkTheme ? 'secondary' : 'accent'"
-      class="white--text d-flex justify-center pa-10"
-    >
-      <!-- <span>&copy; {{ new Date().getFullYear() }}</span> -->
-      <div class="d-flex flex-column align-center">
-        <div class="title mb-2">{{ $t('findMe') }}</div>
-        <div id="networks">
-          <v-tooltip
-            v-for="network in networks"
-            :key="network.name"
-            top
-            :color="network.color"
+    <div class="hide-print">
+      <v-footer
+        :color="darkTheme ? 'secondary' : 'accent'"
+        class="white--text d-flex justify-center pa-10"
+      >
+        <!-- <span>&copy; {{ new Date().getFullYear() }}</span> -->
+        <div class="d-flex flex-column align-center">
+          <div class="title mb-2">{{ $t('findMe') }}</div>
+          <div id="networks">
+            <v-tooltip
+              v-for="network in networks"
+              :key="network.name"
+              top
+              :color="network.color"
+            >
+              <template v-slot:activator="{ on }">
+                <StandardButton
+                  icon
+                  x-large
+                  :href="network.link"
+                  target="_blank"
+                  text-color="white"
+                  :text-hover-color="network.color"
+                  v-on="on"
+                >
+                  <v-icon large>{{ network.icon }}</v-icon>
+                </StandardButton>
+              </template>
+              {{ network.name }}
+            </v-tooltip>
+          </div>
+          <a
+            :href="'mailto:' + email"
+            class="my-2 text-decoration-none white--text"
           >
-            <template v-slot:activator="{ on }">
-              <StandardButton
-                icon
-                x-large
-                :href="network.link"
-                target="_blank"
-                text-color="white"
-                :text-hover-color="network.color"
-                v-on="on"
-              >
-                <v-icon large>{{ network.icon }}</v-icon>
-              </StandardButton>
-            </template>
-            {{ network.name }}
-          </v-tooltip>
+            <v-icon color="white" class="mr-1">mail</v-icon>{{ email }}
+          </a>
+          <v-img
+            width="100"
+            class="mt-5"
+            :src="require('@/assets/images/portfolio_logo.png')"
+          />
         </div>
-        <a
-          :href="'mailto:' + email"
-          class="my-2 text-decoration-none white--text"
-        >
-          <v-icon color="white" class="mr-1">mail</v-icon>{{ email }}
-        </a>
-        <v-img
-          width="100"
-          class="mt-5"
-          :src="require('@/assets/images/portfolio_logo.png')"
-        />
-      </div>
-    </v-footer>
+      </v-footer>
+    </div>
   </v-app>
 </template>
 

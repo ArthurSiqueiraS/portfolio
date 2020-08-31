@@ -18,3 +18,9 @@
 ::-webkit-scrollbar-track {
   background: var(--v-accent-base);
 }
+
+@media print {
+  .hide-print {
+    display: none !important;
+  }
+}

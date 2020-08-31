@@ -1,15 +1,20 @@
 <template>
-  <v-row no-gutters class="d-flex justify-center py-8">
-    <v-col cols="12" style="max-width: 954px;" class="py-12 px-4 px-sm-12">
+  <v-row id="resume-container" no-gutters class="d-flex justify-center py-8">
+    <v-col
+      id="resume"
+      cols="12"
+      style="max-width: 954px;"
+      class="py-12 px-4 px-md-12"
+    >
       <ResumeHeader class="mb-8" />
       <v-divider class="primary" />
       <v-row no-gutters>
-        <v-col cols="12" md="8" class="py-2 pr-md-12">
+        <v-col cols="12" sm="8" class="py-2 pr-sm-12">
           <ResumeMain />
         </v-col>
         <v-col
           cols="12"
-          md="4"
+          sm="4"
           class="px-8 py-4"
           :style="{
             borderLeft: mobile ? null : sideBorder,
@@ -31,8 +36,19 @@ export default {
   },
   computed: {
     mobile() {
-      return this.$vuetify.breakpoint.smAndDown
+      return this.$vuetify.breakpoint.xsOnly
     },
   },
 }
 </script>
+<style lang="scss">
+@media print {
+  #resume-container {
+    padding: 0 !important;
+  }
+
+  #resume {
+    padding: 20px 20px 0 !important;
+  }
+}
+</style>
