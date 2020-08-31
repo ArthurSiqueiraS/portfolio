@@ -18,7 +18,8 @@ export default {
     status: 'Status',
   },
   resume: {
-    download: 'Download PDF',
+    print: 'Export PDF',
+    printUnavailable: 'Not available in this browser',
     summary: 'Summary',
     experience: 'Experience',
     education: 'Education',

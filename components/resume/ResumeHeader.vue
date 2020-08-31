@@ -1,27 +1,41 @@
 <template>
   <v-row no-gutters align="end">
-    <v-col cols="12" md="6">
+    <v-col cols="12" sm="8">
       <h1 class="primary--text">{{ name }}</h1>
       <h2 class="accent--text">{{ label }}</h2>
       <h5 class="info--text">{{ location }}</h5>
     </v-col>
-    <v-col cols="12" md="6" class="text-right mt-8 mt-md-0 hide-print">
+    <v-col
+      cols="12"
+      sm="4"
+      class="text-right mt-8 mt-md-0 hide-print d-flex justify-end"
+    >
       <v-hover v-slot:default="{ hover }">
-        <v-btn
-          depressed
-          tile
-          :outlined="!hover"
-          color="primary"
-          :style="{
-            transition: '0.3s',
-            border: hover
-              ? '1px solid ' + $vuetify.theme.currentTheme.primary
-              : null,
-          }"
-          @click="downloadPdf"
-        >
-          {{ $t('resume.download') }}
-        </v-btn>
+        <div style="width: 200px;">
+          <div
+            v-if="disabledPrint"
+            class="error--text caption mb-2 text-center"
+          >
+            {{ $t('resume.printUnavailable') }}
+          </div>
+          <v-btn
+            depressed
+            tile
+            block
+            :outlined="!hover || disabledPrint"
+            color="primary"
+            :style="{
+              transition: '0.3s',
+              border: hover
+                ? '1px solid ' + $vuetify.theme.currentTheme.primary
+                : null,
+            }"
+            :disabled="disabledPrint"
+            @click="printPdf"
+          >
+            {{ $t('resume.print') }}
+          </v-btn>
+        </div>
       </v-hover>
     </v-col>
   </v-row>
@@ -36,8 +50,13 @@ export default {
       location,
     }
   },
+  computed: {
+    disabledPrint() {
+      return navigator.userAgent.toLowerCase().includes('firefox')
+    },
+  },
   methods: {
-    downloadPdf() {
+    printPdf() {
       window.print()
     },
   },

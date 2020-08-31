@@ -16,7 +16,8 @@ export default {
     status: 'Status',
   },
   resume: {
-    download: 'Baixar PDF',
+    print: 'Exportar PDF',
+    printUnavailable: 'Não disponível neste navegador',
     summary: 'Resumo',
     experience: 'Experiência',
     education: 'Educação',
