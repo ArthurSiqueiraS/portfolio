@@ -24,21 +24,24 @@
 import { mdiLinkedin } from '@mdi/js'
 
 export default {
-  data() {
-    const { phone, email, linkedin, url } = this.$store.state.resume.basics
+  computed: {
+    contacts() {
+      const { phone, email, linkedin } = this.$portfolio()
+      const url = 'dev.arthursiqueira.netlify.app'
+      let linkedinUrl = 'https://www.linkedin.com/in/' + linkedin
+      if (this.$i18n.locale === 'pt') linkedinUrl += '/?locale=pt_BR'
 
-    return {
-      contacts: [
+      return [
         { icon: 'phone', text: phone },
         { icon: 'email', text: email },
         {
           icon: mdiLinkedin,
           text: linkedin,
-          url: 'https://www.linkedin.com/in/' + linkedin,
+          url: linkedinUrl,
         },
         { icon: 'link', text: url, url: 'https://' + url },
-      ],
-    }
+      ]
+    },
   },
 }
 </script>

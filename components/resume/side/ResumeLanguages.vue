@@ -12,7 +12,7 @@
         {{ language.name }}
       </div>
       <v-icon
-        v-for="(level, index) in Array(language.fluency + 2)"
+        v-for="(level, index) in Array(language.level + 2)"
         :key="'level' + index"
         size="8"
         class="mx-1"
@@ -20,7 +20,7 @@
       >
         lens </v-icon
       ><v-icon
-        v-for="(level, index) in Array(5 - (language.fluency + 2))"
+        v-for="(level, index) in Array(5 - (language.level + 2))"
         :key="index"
         size="8"
         class="mx-1"
@@ -33,10 +33,10 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      languages: this.$store.state.resume.languages,
-    }
+  computed: {
+    languages() {
+      return this.$portfolio().languages
+    },
   },
 }
 </script>

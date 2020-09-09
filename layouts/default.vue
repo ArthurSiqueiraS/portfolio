@@ -9,7 +9,11 @@
       flat
       :style="{ zIndex: landing && 999 }"
     >
-      <n-link v-if="$route.path != '/' && $route.path != '/pt'" to="/">
+      <n-link
+        v-if="$route.path != '/' && $route.path != '/pt'"
+        :to="localePath('/')"
+        class="d-flex"
+      >
         <img
           height="30px"
           :src="require('@/assets/images/portfolio_logo.png')"
@@ -60,10 +64,15 @@
     <div class="hide-print">
       <v-footer
         :color="darkTheme ? 'secondary' : 'accent'"
-        class="white--text d-flex justify-center pa-10"
+        class="white--text d-flex justify-center pa-10 pb-5"
       >
         <!-- <span>&copy; {{ new Date().getFullYear() }}</span> -->
         <div class="d-flex flex-column align-center">
+          <v-img
+            width="100"
+            class="mb-5"
+            :src="require('@/assets/images/portfolio_logo.png')"
+          />
           <div class="title mb-2">{{ $t('findMe') }}</div>
           <div id="networks">
             <v-tooltip
@@ -94,11 +103,10 @@
           >
             <v-icon color="white" class="mr-1">mail</v-icon>{{ email }}
           </a>
-          <v-img
-            width="100"
-            class="mt-5"
-            :src="require('@/assets/images/portfolio_logo.png')"
-          />
+
+          <div class="mt-8 caption">
+            Made with Vue + Nuxt.js, Vuetify and Ruby on Rails
+          </div>
         </div>
       </v-footer>
     </div>

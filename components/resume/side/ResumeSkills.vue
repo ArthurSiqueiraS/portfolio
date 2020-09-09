@@ -14,10 +14,10 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      skills: this.$store.state.resume.skills,
-    }
+  computed: {
+    skills() {
+      return this.$portfolio().skills
+    },
   },
 }
 </script>

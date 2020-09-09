@@ -3,10 +3,10 @@
     <ResumeMainItem
       v-for="job in experience"
       :key="job.id"
-      :title="job.position"
-      :subtitle="job.company"
-      :start-date="job.startDate"
-      :end-date="job.endDate"
+      :title="job.occupations.map((o) => o.name).join(',')"
+      :subtitle="job.employer.name"
+      :start-date="job.start_date"
+      :end-date="job.end_date"
     >
       {{ job.summary }}
     </ResumeMainItem>
@@ -14,10 +14,10 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      experience: this.$store.state.resume.work,
-    }
+  computed: {
+    experience() {
+      return this.$portfolio().experiences
+    },
   },
 }
 </script>

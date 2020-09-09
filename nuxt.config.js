@@ -56,6 +56,7 @@ export default {
     '@/plugins/representers',
     '@/plugins/vueParticles',
     '@/plugins/cookieFactory',
+    '@/plugins/portfolio',
   ],
   /*
    ** Auto import components
@@ -91,6 +92,9 @@ export default {
     },
     lazy: true,
     langDir: 'lang/',
+  },
+  router: {
+    middleware: 'portfolio',
   },
   /*
    ** Axios module configuration

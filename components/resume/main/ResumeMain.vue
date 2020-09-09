@@ -5,15 +5,15 @@
     </ResumeMainColumn>
     <ResumeExperience />
     <ResumeEducation />
-    <ResumeAwards />
+    <ResumeExtraInfo />
   </div>
 </template>
 <script>
 export default {
-  data() {
-    return {
-      summary: this.$store.state.resume.basics.summary,
-    }
+  computed: {
+    summary() {
+      return this.$portfolio().summary
+    },
   },
 }
 </script>

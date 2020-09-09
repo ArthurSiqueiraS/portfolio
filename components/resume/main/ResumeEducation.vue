@@ -3,7 +3,7 @@
     <ResumeMainItem
       v-for="item in education"
       :key="item.id"
-      :title="`${item.area}, ${item.studyType}`"
+      :title="`${item.course}, ${item.title}`"
       :subtitle="item.institution"
       :start-date="item.startDate"
       :end-date="item.endDate"
@@ -14,10 +14,10 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      education: this.$store.state.resume.education,
-    }
+  computed: {
+    education() {
+      return this.$portfolio().education
+    },
   },
 }
 </script>

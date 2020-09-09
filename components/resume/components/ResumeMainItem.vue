@@ -4,7 +4,12 @@
       <h3>{{ title }}</h3>
       <div class="body-2 font-weight-bold">
         {{ $representers.localeDate(startDate)
-        }}<span v-if="endDate"> - {{ $representers.localeDate(endDate) }}</span>
+        }}<span v-if="continuous">
+          -
+          {{
+            endDate ? $representers.localeDate(endDate) : $t('resume.present')
+          }}</span
+        >
       </div>
     </div>
     <h5 v-if="subtitle">{{ subtitle }}</h5>
@@ -31,6 +36,10 @@ export default {
     endDate: {
       type: String,
       default: null,
+    },
+    continuous: {
+      type: Boolean,
+      default: true,
     },
   },
 }
