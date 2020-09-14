@@ -39,9 +39,15 @@
               {{ $t('viewResume') }}
             </v-btn>
             <div class="contact-icons d-flex justify-center">
-              <v-icon large color="primary">email</v-icon>
-              <v-icon large color="primary">{{ mdiLinkedin }}</v-icon>
-              <v-icon large color="primary">{{ mdiInstagram }}</v-icon>
+              <a :href="'mailto:' + email" target="_blank">
+                <v-icon large color="primary">email</v-icon>
+              </a>
+              <a :href="linkedin" target="_blank">
+                <v-icon large color="primary">{{ mdiLinkedin }}</v-icon>
+              </a>
+              <a :href="instagram" target="_blank">
+                <v-icon large color="primary">{{ mdiInstagram }}</v-icon>
+              </a>
             </div>
           </div>
         </v-col>
@@ -65,6 +71,15 @@ export default {
     },
     email() {
       return 'dev.arthursiqueira@gmail.com'
+    },
+    linkedin() {
+      let linkedin = this.$portfolio().linkedin
+      if (this.$i18n.locale === 'pt') linkedin += '/?locale=pt_BR'
+
+      return 'https://www.linkedin.com/in/' + linkedin
+    },
+    instagram() {
+      return 'https://instagram.com/' + this.$portfolio().instagram
     },
   },
 }

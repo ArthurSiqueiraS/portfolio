@@ -19,7 +19,7 @@
           backgroundColor: 'white',
         }"
       >
-        <PortfolioThumbnail
+        <ProjectThumbnail
           :project="project"
           :disabled="currentSlide != index"
         />
@@ -38,43 +38,14 @@ export default {
   data() {
     return {
       currentSlide: 0,
-      projects: [
-        {
-          name: 'Semana Acadêmica de Medicina UFPel',
-          images: ['https://logomaster.ai/static/media/sample.c8bf2b04.svg'],
-          technologies: {
-            frontEnd: ['Vue.js', 'Vuetify'],
-            backEnd: ['Ruby on Rails', 'MongoDB'],
-          },
-          link: 'https://sam2020.netlify.app',
-        },
-        {
-          name: 'Vidium',
-          images: [
-            'https://vidium-solutions.com/wp-content/uploads/2019/01/180713_VF_vidium_logonoir_Plan-de-travail-1.jpg',
-          ],
-          technologies: {
-            frontEnd: ['Vue.js', 'Vuetify'],
-            backEnd: ['Ruby on Rails', 'MongoDB'],
-          },
-          link: 'https://vidium.indeorum.com',
-        },
-        {
-          name: 'Cientum',
-          images: [
-            'https://cientum.indeorum.com/assets/logo/full-b2a3915f67c4351b367c9639118d0641bf70abc3448b82e76a65f27ba70750d3.png',
-          ],
-          technologies: {
-            frontEnd: ['Vue.js', 'Vuetify'],
-            backEnd: ['Ruby on Rails', 'MongoDB'],
-          },
-        },
-      ],
     }
   },
   computed: {
     mobile() {
       return this.$vuetify.breakpoint.mdAndDown
+    },
+    projects() {
+      return this.$portfolio().projects
     },
   },
   methods: {

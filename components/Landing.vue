@@ -33,19 +33,8 @@
         <h1>
           Arthur Siqueira
         </h1>
-        <h2>{{ $t('title') }}</h2>
+        <h2>{{ $portfolio().title }}</h2>
       </div>
-      <!-- <v-img
-        width="200"
-        height="auto"
-        max-width="40%"
-        :gradient="`to top, ${$helpers.hexToRGB(
-          $vuetify.theme.currentTheme.primary,
-          0.05
-        )}, ${$helpers.hexToRGB($vuetify.theme.currentTheme.secondary, 0.15)}`"
-        class="rounded-circle mt-16 elevation-8"
-        :src="require('@/assets/images/landing_profile.jpg')"
-      /> -->
     </div>
     <div style="height: 100vh;">
       <vue-particles

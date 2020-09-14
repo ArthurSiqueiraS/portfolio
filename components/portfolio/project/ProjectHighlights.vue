@@ -31,7 +31,7 @@
           }}</v-icon>
         </div>
         <div class="accent--text">
-          {{ highlight.text }}
+          {{ highlight.description }}
         </div>
       </div>
     </v-card>

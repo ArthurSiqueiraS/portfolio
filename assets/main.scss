@@ -19,6 +19,10 @@
   background: var(--v-accent-base);
 }
 
+a {
+  text-decoration: none;
+}
+
 @media print {
   .hide-print {
     display: none !important;

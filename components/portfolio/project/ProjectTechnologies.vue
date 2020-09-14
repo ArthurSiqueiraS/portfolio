@@ -11,12 +11,17 @@
         >
           <div
             v-for="(tech, index) in stack.stack"
-            :key="tech"
+            :key="tech.id"
             class="d-flex align-center mb-2"
           >
-            <v-chip class="secondary--text" color="primary">
-              {{ tech }}
-            </v-chip>
+            <v-tooltip bottom>
+              <template v-slot:activator="{ on }">
+                <a :href="tech.link" target="_blank" v-on="on">
+                  <img height="50px" :src="tech.logo" />
+                </a>
+              </template>
+              {{ tech.name }}
+            </v-tooltip>
             <v-icon
               v-if="index < stack.stack.length - 1"
               color="accent"

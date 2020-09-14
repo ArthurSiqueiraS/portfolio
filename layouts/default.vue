@@ -97,10 +97,7 @@
               {{ network.name }}
             </v-tooltip>
           </div>
-          <a
-            :href="'mailto:' + email"
-            class="my-2 text-decoration-none white--text"
-          >
+          <a :href="'mailto:' + email" class="my-2 white--text">
             <v-icon color="white" class="mr-1">mail</v-icon>{{ email }}
           </a>
 
@@ -120,38 +117,46 @@ export default {
   data() {
     return {
       landing: this.$route.name.includes('index'),
-      email: 'dev.arthusiqueira@gmail.com',
-      networks: [
-        {
-          icon: mdiGithub,
-          link: 'https://github.com/arthursiqueiras',
-          name: 'Github',
-          color: 'black',
-        },
-        {
-          icon: mdiGitlab,
-          link: 'https://gitlab.com/ArthurSiqueiraS',
-          name: 'Gitlab',
-          color: '#FC6D27',
-        },
-        {
-          icon: mdiLinkedin,
-          link: 'https://www.linkedin.com/in/arthur-siqueira-e-silva-8283bb18a',
-          name: 'Linkedin',
-          color: '#0076B4',
-        },
-        {
-          icon: mdiInstagram,
-          link: 'https://instagram.com/arthursiqueiras',
-          name: 'Instagram',
-          color: '#C1558B',
-        },
-      ],
     }
   },
   computed: {
     darkTheme() {
       return this.$vuetify.theme.dark
+    },
+    email() {
+      return this.$portfolio().email
+    },
+    networks() {
+      const portfolio = this.$portfolio()
+      let linkedin = portfolio.linkedin
+      if (this.$i18n.locale === 'pt') linkedin += '/?locale=pt_BR'
+
+      return [
+        {
+          icon: mdiGithub,
+          link: 'https://github.com/' + portfolio.github,
+          name: 'Github',
+          color: 'black',
+        },
+        {
+          icon: mdiGitlab,
+          link: 'https://gitlab.com/' + portfolio.gitlab,
+          name: 'Gitlab',
+          color: '#FC6D27',
+        },
+        {
+          icon: mdiLinkedin,
+          link: 'https://www.linkedin.com/in/' + linkedin,
+          name: 'Linkedin',
+          color: '#0076B4',
+        },
+        {
+          icon: mdiInstagram,
+          link: 'https://instagram.com/' + portfolio.instagram,
+          name: 'Instagram',
+          color: '#C1558B',
+        },
+      ]
     },
   },
   methods: {

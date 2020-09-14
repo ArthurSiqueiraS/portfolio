@@ -21,7 +21,7 @@
     </div>
     <v-row no-gutters class="accent--text pa-4" align="center">
       <v-col cols="12" md="3" class="text-center">
-        <a :href="project.link" target="_blank">
+        <a :href="project.url" target="_blank">
           <img :src="project.logo" height="100" />
         </a>
       </v-col>
@@ -58,59 +58,33 @@ import ProjectTechnologies from './ProjectTechnologies'
 import ProjectInfo from './ProjectInfo'
 
 export default {
+  props: {
+    project: {
+      type: Object,
+      default: () => {},
+    },
+  },
   data() {
-    const project = {
-      title: 'XXXVI Semana Acadêmica de Medicina UFPel',
-      link: 'https://sam2020.netlify.app',
-      description: 'Plataforma para transmissão de evento online',
-      frontEnd: ['VueJS', 'NuxtJs', 'Vuetify'],
-      backEnd: ['Ruby on Rails', 'MongoDB'],
-      startDate: new Date(2020, 6, 1),
-      endDate: new Date(2020, 7, 1),
-      employment: 'Freelancer',
-      occupations: ['Project Manager', 'Full-stack Developer'],
-      highlights: [
-        {
-          image: 'https://www.w3schools.com/w3css/img_lights.jpg',
-          title: 'Event videos',
-          text: 'bla bla bla bla bla bla bla bla bla bla bla',
-          icon: 'play_arrow',
-        },
-        {
-          image: 'https://www.w3schools.com/w3css/img_lights.jpg',
-          title: 'solo project',
-          text: 'bla bla bla bla bla bla bla bla bla bla bla',
-          icon: 'person',
-        },
-      ],
-      status: ['Launched'],
-      images: [
-        'https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg',
-        'https://d17fnq9dkz9hgj.cloudfront.net/breed-uploads/2018/09/dog-landing-hero-lg.jpg?bust=1536935129&width=1080',
-      ],
-      logo: 'https://pt.freelogodesign.org/Content/img/logo-samples/flooop.png',
-    }
     return {
       galleryHeight: 0,
-      project,
       panels: [
         {
           title: this.$t('highlights'),
           component: ProjectHighlights,
-          props: { highlights: project.highlights },
+          props: { highlights: this.project.highlights },
         },
         {
           title: this.$t('technologiesUsed'),
           component: ProjectTechnologies,
           props: {
-            frontEnd: project.frontEnd,
-            backEnd: project.backEnd,
+            frontEnd: this.project.frontEnd,
+            backEnd: this.project.backEnd,
           },
         },
         {
           title: this.$t('projectInfo'),
           component: ProjectInfo,
-          props: { project },
+          props: { project: this.project },
         },
       ],
     }

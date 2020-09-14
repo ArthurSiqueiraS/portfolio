@@ -7,7 +7,7 @@
       justify="space-between"
     >
       <span class="title font-weight-bold">{{ key }}:</span>
-      <a v-if="key == 'Link'" :href="value" target="_blank">{{ value }}</a>
+      <a v-if="key == 'Website'" :href="value" target="_blank">{{ value }}</a>
       <span v-else>{{ value }}</span>
     </v-row>
   </div>
@@ -22,13 +22,15 @@ export default {
   },
   data() {
     const details = {}
-    details[this.$t('project.employment')] = this.project.employment
-    details[this.$t('project.occupations')] = this.project.occupations.join(
-      ' / '
-    )
-    details[this.$t('project.status')] = this.project.status.join(' / ')
-    if (this.project.link) {
-      details.Link = this.project.link
+    details[this.$t('project.employment')] = this.project.employer.name
+    details[this.$t('project.occupations')] = this.project.occupations
+      .map((o) => o.name)
+      .join(' / ')
+    details[this.$t('project.status')] = this.project.status
+      .map((s) => s.name)
+      .join(' / ')
+    if (this.project.url) {
+      details.Website = this.project.url
     }
 
     return {

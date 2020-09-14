@@ -1,5 +1,4 @@
 export default {
-  title: 'Full-stack developer',
   viewResume: 'View my resume',
   findMe: 'Find me on:',
   animations: 'Animations',
@@ -33,5 +32,5 @@ export default {
     skills: 'Skills',
     languages: 'Languages',
   },
-  technologiesAndSkills: 'Technologies & Skills',
+  technologies: 'Technologies',
 }
