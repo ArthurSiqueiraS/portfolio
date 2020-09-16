@@ -17,7 +17,7 @@
         <v-col
           cols="12"
           md="9"
-          class="subtitle-1 d-flex flex-column pa-8 pa-md-0 justify-space-between"
+          class="subtitle-1 d-flex flex-column pa-8 pa-md-0 text-center text-md-left justify-space-between align-center align-md-start"
         >
           {{ $t('callToAction') }}
           <div class="mt-8 d-sm-flex">
@@ -59,7 +59,7 @@ export default {
       return this.$vuetify.breakpoint.xsOnly
     },
     email() {
-      return 'dev.arthursiqueira@gmail.com'
+      return this.$portfolio().email
     },
     linkedin() {
       let linkedin = this.$portfolio().linkedin

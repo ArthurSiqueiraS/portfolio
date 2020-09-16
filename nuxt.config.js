@@ -87,7 +87,6 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
     'nuxt-webfontloader',
     'nuxt-i18n',
   ],

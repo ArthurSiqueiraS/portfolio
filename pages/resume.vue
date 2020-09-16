@@ -48,7 +48,7 @@ export default {
   }
 
   #resume {
-    padding: 20px 20px 0 !important;
+    padding: 0 !important;
   }
 }
 </style>

@@ -27,7 +27,7 @@ export default {
   computed: {
     contacts() {
       const { phone, email, linkedin } = this.$portfolio()
-      const url = 'dev.arthursiqueira.netlify.app'
+      const url = 'arthursiqueira.netlify.app'
       let linkedinUrl = 'https://www.linkedin.com/in/' + linkedin
       if (this.$i18n.locale === 'pt') linkedinUrl += '/?locale=pt_BR'
 
