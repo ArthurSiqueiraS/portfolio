@@ -32,7 +32,10 @@ export default {
       if (this.$i18n.locale === 'pt') linkedinUrl += '/?locale=pt_BR'
 
       return [
-        { icon: 'phone', text: phone },
+        {
+          icon: 'phone',
+          text: phone.replace(/(\d{2})(\d{2})(\d*)/, '+$1 $2 $3'),
+        },
         { icon: 'email', text: email },
         {
           icon: mdiLinkedin,

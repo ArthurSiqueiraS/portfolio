@@ -1,7 +1,9 @@
 <template>
   <div>
-    <ResumeMainColumn :title="$t('resume.summary')">
-      {{ summary }}
+    <ResumeMainColumn :title="$t('resume.about')">
+      <div v-for="(paragraph, i) in summary.split('#n')" :key="i" class="pb-2">
+        {{ paragraph }}<br />
+      </div>
     </ResumeMainColumn>
     <ResumeExperience />
     <ResumeEducation />

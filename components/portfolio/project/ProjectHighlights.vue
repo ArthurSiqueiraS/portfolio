@@ -9,28 +9,44 @@
       flat
       :height="mobile ? '' : '200px'"
     >
-      <img
-        v-show="!mobile"
+      <v-img
+        v-show="!mobile && highlight.image"
         :height="$vuetify.breakpoint.smOnly ? '75%' : '100%'"
         width="auto"
-        contain
-        :style="'border: 1px solid ' + $vuetify.theme.currentTheme.primary"
+        :style="{
+          border: '1px solid ' + $vuetify.theme.currentTheme.primary,
+          maxWidth: '300px',
+        }"
         :src="highlight.image"
+        :class="even(index) ? 'mr-8' : 'ml-8'"
       />
       <div
-        class="pa-8 text-center"
+        class="py-8 text-center"
         :class="even(index) ? 'text-sm-left' : 'text-sm-right'"
       >
-        <div class="align-center title pb-4 primary--text">
-          <v-icon v-show="even(index)" color="accent" left>{{
-            highlight.icon
-          }}</v-icon
+        <div class="title pb-4 primary--text">
+          <v-icon
+            v-show="even(index)"
+            style="bottom: 2px;"
+            color="accent"
+            left
+            >{{ highlight.icon }}</v-icon
           >{{ highlight.title
-          }}<v-icon v-show="!even(index)" color="accent" right>{{
-            highlight.icon
-          }}</v-icon>
+          }}<v-icon
+            v-show="!even(index)"
+            style="bottom: 2px;"
+            color="accent"
+            right
+            >{{ highlight.icon }}</v-icon
+          >
         </div>
-        <div class="accent--text">
+        <div
+          class="accent--text text-justify"
+          :style="{
+            fontSize: '16px',
+            textAlignLast: even(index) ? 'left' : 'right',
+          }"
+        >
           {{ highlight.description }}
         </div>
       </div>

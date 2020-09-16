@@ -7,6 +7,7 @@
       :min-swipe-distance="60"
       width="350"
       height="250"
+      bias="right"
       @before-slide-change="onSlideChange"
     >
       <slide
@@ -25,6 +26,24 @@
         />
       </slide>
     </carousel3d>
+    <div class="d-flex justify-center">
+      <div v-for="(project, index) in projects" :key="index">
+        <v-tooltip bottom color="primary">
+          <template v-slot:activator="{ on }">
+            <v-icon
+              class="mx-2"
+              x-small
+              :color="currentSlide == index ? 'primary' : 'accent'"
+              v-on="on"
+              @click="$refs.carousel.goSlide(index)"
+            >
+              lens
+            </v-icon>
+          </template>
+          {{ project.title }}
+        </v-tooltip>
+      </div>
+    </div>
   </div>
 </template>
 <script>

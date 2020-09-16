@@ -3,8 +3,8 @@
     <ResumeMainItem
       v-for="job in experience"
       :key="job.id"
-      :title="job.occupations.map((o) => o.name).join(',')"
-      :subtitle="job.employer.name"
+      :title="job.employer.name"
+      :subtitle="job.occupations.map((o) => o.name).join(' | ')"
       :start-date="job.start_date"
       :end-date="job.end_date"
     >

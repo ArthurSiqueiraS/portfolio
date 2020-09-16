@@ -1,10 +1,11 @@
 <template>
   <div>
     <v-carousel
+      id="project-gallery"
       ref="gallery"
       cycle
       hide-delimiter-background
-      :show-arrows="false"
+      :show-arrows="!$vuetify.breakpoint.mobile"
       show-arrows-on-hover
       :height="galleryHeight"
     >
@@ -21,15 +22,26 @@
     </div>
     <v-row no-gutters class="accent--text pa-4" align="center">
       <v-col cols="12" md="3" class="text-center">
-        <a :href="project.url" target="_blank">
-          <img :src="project.logo" height="100" />
+        <a
+          :href="project.url"
+          target="_blank"
+          :style="{ cursor: project.url ? 'pointer' : 'default' }"
+        >
+          <img
+            :src="project.logo"
+            height="auto"
+            style="max-width: 100%; max-height: 125px;"
+          />
         </a>
       </v-col>
       <v-col cols="12" md="9" class="px-4 text-justify">
-        {{ project.description }} {{ project.description }}
-        {{ project.description }} {{ project.description }}
-        {{ project.description }} {{ project.description }}
-        {{ project.description }} {{ project.description }}
+        <div
+          v-for="(paragraph, index) in project.description.split('#n')"
+          :key="index"
+          class="pb-2"
+        >
+          {{ paragraph }}<br />
+        </div>
       </v-col>
     </v-row>
     <v-expansion-panels class="py-8" :value="[0, 1, 2]" multiple tile flat>
@@ -67,12 +79,11 @@ export default {
   data() {
     return {
       galleryHeight: 0,
-      panels: [
-        {
-          title: this.$t('highlights'),
-          component: ProjectHighlights,
-          props: { highlights: this.project.highlights },
-        },
+    }
+  },
+  computed: {
+    panels() {
+      const panels = [
         {
           title: this.$t('technologiesUsed'),
           component: ProjectTechnologies,
@@ -86,8 +97,17 @@ export default {
           component: ProjectInfo,
           props: { project: this.project },
         },
-      ],
-    }
+      ]
+      if (this.project.highlights.length > 0) {
+        panels.unshift({
+          title: this.$t('highlights'),
+          component: ProjectHighlights,
+          props: { highlights: this.project.highlights },
+        })
+      }
+
+      return panels
+    },
   },
   mounted() {
     setTimeout(() => {
@@ -107,5 +127,16 @@ export default {
 
 .v-expansion-panel-header--active {
   min-height: 48px !important;
+}
+
+#project-gallery .v-image::after {
+  display: block;
+  position: absolute;
+  background-image: linear-gradient(to top, black 0%, 15%, transparent 100%);
+  opacity: 0.75;
+  height: 25%;
+  width: 100%;
+  bottom: -20px;
+  content: '';
 }
 </style>

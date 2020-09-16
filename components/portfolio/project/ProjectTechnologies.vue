@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div v-for="stack in stacks" :key="stack.name" class="py-4">
-      <div v-if="stack.stack.length > 0">
+    <div v-for="stack in stacks" :key="stack.name">
+      <div v-if="stack.stack.length > 0" class="py-4">
         <div class="title primary--text text-center text-sm-left">
           {{ $t(stack.name) }}
         </div>
@@ -25,7 +25,7 @@
             <v-icon
               v-if="index < stack.stack.length - 1"
               color="accent"
-              class="mx-1"
+              class="mx-3"
               x-small
             >
               lens

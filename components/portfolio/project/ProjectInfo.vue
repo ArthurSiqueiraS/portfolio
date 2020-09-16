@@ -22,13 +22,13 @@ export default {
   },
   data() {
     const details = {}
-    details[this.$t('project.employment')] = this.project.employer.name
+    details[this.$t('project.employer')] = this.project.employer.name
     details[this.$t('project.occupations')] = this.project.occupations
       .map((o) => o.name)
       .join(' / ')
-    details[this.$t('project.status')] = this.project.status
-      .map((s) => s.name)
-      .join(' / ')
+    // details[this.$t('project.status')] = this.project.status
+    //   .map((s) => s.name)
+    //   .join(' / ')
     if (this.project.url) {
       details.Website = this.project.url
     }

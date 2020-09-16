@@ -9,7 +9,8 @@
         >
           <v-avatar size="200">
             <V-img
-              src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              :gradient="$helpers.imageGradient(0.75)"
+              :src="require('@/assets/images/landing_profile.jpg')"
             />
           </v-avatar>
         </v-col>
@@ -45,9 +46,6 @@
               <a :href="linkedin" target="_blank">
                 <v-icon large color="primary">{{ mdiLinkedin }}</v-icon>
               </a>
-              <a :href="instagram" target="_blank">
-                <v-icon large color="primary">{{ mdiInstagram }}</v-icon>
-              </a>
             </div>
           </div>
         </v-col>
@@ -56,13 +54,12 @@
   </v-row>
 </template>
 <script>
-import { mdiLinkedin, mdiInstagram } from '@mdi/js'
+import { mdiLinkedin } from '@mdi/js'
 
 export default {
   data() {
     return {
       mdiLinkedin,
-      mdiInstagram,
     }
   },
   computed: {
@@ -77,9 +74,6 @@ export default {
       if (this.$i18n.locale === 'pt') linkedin += '/?locale=pt_BR'
 
       return 'https://www.linkedin.com/in/' + linkedin
-    },
-    instagram() {
-      return 'https://instagram.com/' + this.$portfolio().instagram
     },
   },
 }

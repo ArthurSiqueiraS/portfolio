@@ -1,5 +1,5 @@
 <template>
-  <div class="py-2">
+  <div class="py-1">
     <div class="d-flex justify-space-between align-center">
       <h3>{{ title }}</h3>
       <div class="body-2 font-weight-bold">

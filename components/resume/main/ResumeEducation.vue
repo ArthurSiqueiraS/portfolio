@@ -5,8 +5,8 @@
       :key="item.id"
       :title="`${item.course}, ${item.title}`"
       :subtitle="item.institution"
-      :start-date="item.startDate"
-      :end-date="item.endDate"
+      :start-date="item.start_date"
+      :end-date="item.end_date"
     >
       {{ item.summary }}
     </ResumeMainItem>

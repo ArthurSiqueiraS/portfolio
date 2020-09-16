@@ -11,7 +11,7 @@ const themes = {
     success: colors.green.accent3,
   },
   dark: {
-    primary: '#61DAFB',
+    primary: '#51c8e8',
     accent: '#FFFFFF',
     secondary: '#20232A',
     info: colors.teal.lighten1,

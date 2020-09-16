@@ -133,6 +133,12 @@ export default {
 
       return [
         {
+          icon: mdiLinkedin,
+          link: 'https://www.linkedin.com/in/' + linkedin,
+          name: 'Linkedin',
+          color: '#0076B4',
+        },
+        {
           icon: mdiGithub,
           link: 'https://github.com/' + portfolio.github,
           name: 'Github',
@@ -143,12 +149,6 @@ export default {
           link: 'https://gitlab.com/' + portfolio.gitlab,
           name: 'Gitlab',
           color: '#FC6D27',
-        },
-        {
-          icon: mdiLinkedin,
-          link: 'https://www.linkedin.com/in/' + linkedin,
-          name: 'Linkedin',
-          color: '#0076B4',
         },
         {
           icon: mdiInstagram,

@@ -27,13 +27,13 @@
         style="height: 100%; width: 100%;"
       >
         <div
-          class="secondary--text rounded-pill subtitle-2 pa-1"
+          class="secondary--text rounded-pill subtitle-1 pa-1"
           active-class="text-center"
           :class="darkTheme ? 'primary' : 'accent'"
         >
           {{ project.title }}
         </div>
-        <div>
+        <div class="flex-grow-1 d-flex flex-column justify-center">
           <div
             v-for="(stack, stackName) in {
               frontEnd: project.frontEnd,
@@ -41,11 +41,11 @@
             }"
             :key="stackName"
           >
-            <div v-if="stack.length > 0" class="mt-3">
+            <div v-if="stack.length > 0" class="pb-3">
               {{ $t(stackName) }}:
-              <div class="mt-2">
+              <div class="mt-2 d-flex justify-center align-center">
                 <v-chip
-                  v-for="tech in stack"
+                  v-for="tech in stack.slice(0, 3)"
                   :key="tech.id"
                   small
                   :color="darkTheme ? 'primary' : 'accent'"
@@ -53,13 +53,19 @@
                   class="mr-1 ml-1"
                   >{{ tech.name }}</v-chip
                 >
+                <v-icon
+                  v-if="stack.length > 3"
+                  small
+                  color="accent"
+                  @click="detailsDialog = true"
+                  >add</v-icon
+                >
               </div>
             </div>
           </div>
         </div>
-        <v-spacer />
         <div>
-          <v-dialog max-width="800px">
+          <v-dialog v-model="detailsDialog" max-width="800px">
             <template v-slot:activator="{ on }">
               <v-btn
                 width="100px"
@@ -88,7 +94,31 @@
           >
         </div>
       </div>
-      <v-img height="100%" :src="project.images[0]" />
+      <div
+        style="height: 100%; position: relative;"
+        class="d-flex align-center justify-center"
+      >
+        <v-img
+          height="50%"
+          width="auto"
+          contain
+          :src="project.logo"
+          :style="{
+            position: 'absolute',
+            zIndex: 1,
+            filter: 'drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.75)',
+            maxWidth: '70%',
+          }"
+        />
+        <v-img
+          height="100%"
+          :src="project.thumbnail"
+          :gradient="$helpers.imageGradient()"
+          style="
+            filter: blur(1.75px) brightness(95%) saturate(90%) contrast(90%);
+          "
+        />
+      </div>
     </div>
   </v-hover>
 </template>
@@ -107,6 +137,7 @@ export default {
   data() {
     return {
       details: this.$vuetify.breakpoint.lgAndUp,
+      detailsDialog: false,
     }
   },
   computed: {
