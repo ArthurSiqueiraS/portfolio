@@ -21,33 +21,36 @@
           >
             {{ $t('resume.print.unavailable') }}
           </div>
-          <v-dialog v-model="printDialog" width="600">
-            <template v-slot:activator="{ on }">
-              <v-btn
-                depressed
-                tile
-                block
-                :outlined="!hover || disabledPrint"
-                color="primary"
-                :style="{
-                  transition: '0.3s',
-                  border: hover
-                    ? '1px solid ' + $vuetify.theme.currentTheme.primary
-                    : null,
-                }"
-                class="hide-print"
-                :disabled="disabledPrint"
-                v-on="on"
-              >
-                {{ $t('resume.print.button') }}
-              </v-btn>
-            </template>
+          <v-btn
+            depressed
+            tile
+            block
+            :outlined="!hover || disabledPrint"
+            color="primary"
+            :style="{
+              transition: '0.3s',
+              border: hover
+                ? '1px solid ' + $vuetify.theme.currentTheme.primary
+                : null,
+            }"
+            class="hide-print"
+            :disabled="disabledPrint"
+            @click="handlePrintButton"
+          >
+            {{ $t('resume.print.button') }}
+          </v-btn>
+          <v-dialog v-model="printDialog" width="1000">
             <v-sheet class="pa-8 d-flex flex-column align-center text-center">
-              <div>
+              <div
+                class="mx-sm-8"
+                :class="$vuetify.breakpoint.mdAndUp ? 'title' : 'body'"
+              >
                 {{ $t('resume.print.tutorial') }}
               </div>
               <video
-                :src="require('@/assets/videos/print_tutorial_en.mp4')"
+                :src="
+                  require(`@/assets/videos/print_tutorial_${$i18n.locale}.mp4`)
+                "
                 width="100%"
                 controls
                 autoplay
@@ -62,6 +65,13 @@
                   $t('resume.print.dialogConfirm')
                 }}</StandardButton>
               </div>
+              <v-checkbox
+                v-model="dontShow"
+                dense
+                hide-details
+                class="align-self-end caption pa-0 mt-n1 mb-n3"
+                :label="$t('resume.print.dontShow')"
+              />
             </v-sheet>
           </v-dialog>
         </div>
@@ -74,6 +84,7 @@ export default {
   data() {
     return {
       printDialog: false,
+      dontShow: this.$getCookie('print.tutorial') === 'false',
     }
   },
   computed: {
@@ -84,7 +95,20 @@ export default {
       return this.$portfolio()
     },
   },
+  watch: {
+    printDialog(open) {
+      if (!open) {
+        if (this.dontShow) {
+          this.$setCookie('print.tutorial', false)
+        }
+      }
+    },
+  },
   methods: {
+    handlePrintButton() {
+      if (this.dontShow) this.printPdf()
+      else this.printDialog = true
+    },
     printPdf() {
       this.printDialog = false
       window.print()

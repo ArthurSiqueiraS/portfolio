@@ -20,9 +20,11 @@ export default {
     print: {
       button: 'Export PDF',
       unavailable: 'Not available in this browser',
-      tutorial: 'You will be ',
+      tutorial:
+        'Clicking the confirm button will open the printing dialog. To save the resume as a PDF with the best printing format, configure your options as shown in the video:',
       dialogCancel: 'Cancel',
-      dialogConfirm: 'Print',
+      dialogConfirm: 'Confirm',
+      dontShow: "Don't show this again",
     },
     about: 'About',
     experience: 'Experience',
