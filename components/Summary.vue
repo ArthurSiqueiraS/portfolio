@@ -19,15 +19,7 @@
           md="9"
           class="subtitle-1 d-flex flex-column pa-8 pa-md-0 justify-space-between"
         >
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
+          {{ $t('callToAction') }}
           <div class="mt-8 d-sm-flex">
             <v-btn
               :block="mobile"
@@ -40,11 +32,11 @@
               {{ $t('viewResume') }}
             </v-btn>
             <div class="contact-icons d-flex justify-center">
-              <a :href="'mailto:' + email" target="_blank">
-                <v-icon large color="primary">email</v-icon>
-              </a>
               <a :href="linkedin" target="_blank">
                 <v-icon large color="primary">{{ mdiLinkedin }}</v-icon>
+              </a>
+              <a :href="'mailto:' + email" target="_blank">
+                <v-icon large color="primary">email</v-icon>
               </a>
             </div>
           </div>

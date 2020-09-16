@@ -1,10 +1,25 @@
+function years(date) {
+  const today = new Date()
+  let years = today.getFullYear() - date.getFullYear()
+  const m = today.getMonth() - date.getMonth()
+  if (m < 0 || (m === 0 && today.getDate() < date.getDate())) {
+    years--
+  }
+  return years
+}
+
+const age = years(new Date(1998, 3, 13))
+const experience = years(new Date(2018, 5, 1))
 export default {
   viewResume: 'Veja meu currículo',
   findMe: 'Encontre-me em:',
   animations: 'Animações',
   chooseLanguage: 'Escolher idioma',
   changeTheme: 'Alternar tema',
-  pastWork: 'Projetos anteriores',
+  callToAction: `Olá! Meu nome é Arthur, tenho ${age} anos e trabalho com desenvolvimento web há ${experience} anos.
+    Cheque o meu currículo para mais detalhes sobre minha experiência de trabalho, ou navegue pelo meu portfólio de projetos logo abaixo para uma apresentação mais prática.
+    Se você gostaria de entrar em contato ou conhecer melhor meu perfil profissional, conecte-se comigo no Linkedin ou me envie um email!`,
+  pastWork: 'Portfólio de projetos',
   details: 'Ver mais',
   highlights: 'Destaques',
   technologiesUsed: 'Tecnologias utilizadas',
