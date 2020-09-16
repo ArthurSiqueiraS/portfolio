@@ -7,7 +7,18 @@
       justify="space-between"
     >
       <span class="title font-weight-bold">{{ key }}:</span>
-      <a v-if="key == 'Website'" :href="value" target="_blank">{{ value }}</a>
+      <a
+        v-if="key == 'Website'"
+        :href="value"
+        target="_blank"
+        style="
+          max-width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        "
+        >{{ value }}</a
+      >
       <span v-else>{{ value }}</span>
     </v-row>
   </div>
@@ -39,3 +50,7 @@ export default {
   },
 }
 </script>
+<style lang="scss">
+a {
+}
+</style>

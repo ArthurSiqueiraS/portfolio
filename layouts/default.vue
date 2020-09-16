@@ -101,8 +101,8 @@
             <v-icon color="white" class="mr-1">mail</v-icon>{{ email }}
           </a>
 
-          <div class="mt-8 caption">
-            Made with Vue + Nuxt.js, Vuetify and Ruby on Rails
+          <div class="mt-8 caption text-center">
+            {{ $t('madeWith') }}
           </div>
         </div>
       </v-footer>

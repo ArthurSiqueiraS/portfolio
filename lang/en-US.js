@@ -50,4 +50,5 @@ export default {
     languages: 'Languages',
   },
   technologies: 'What I use the most',
+  madeWith: 'Made with Vue + Nuxt.js, Vuetify and Ruby on Rails',
 }
