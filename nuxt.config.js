@@ -1,5 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 
+const dev = process.env.NODE_ENV === 'development'
+
 const themes = {
   light: {
     primary: '#41B883',
@@ -23,10 +25,14 @@ const themes = {
 
 export default {
   mode: 'spa',
-  target: 'static',
   server: {
     port: 8080,
     host: '0.0.0.0',
+  },
+  env: {
+    backendUrl: dev
+      ? 'http://localhost:3000'
+      : 'https://portfolio-arthur-siqueira.herokuapp.com',
   },
   loading: { color: themes.light.accent },
   head: {
@@ -70,7 +76,11 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
+    '@nuxtjs/google-analytics',
   ],
+  googleAnalytics: {
+    id: 'G-DE034J4T7K',
+  },
   /*
    ** Nuxt.js modules
    */
@@ -100,7 +110,9 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseUrl: 'https://portfolio-arthur-siqueira.herokuapp.com',
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module

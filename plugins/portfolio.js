@@ -1,6 +1,6 @@
 export default function ({ store, app, $axios }, inject) {
   async function fetchPortfolio(locale) {
-    const response = await $axios.get('http://localhost:3000/portfolio', {
+    const response = await $axios.get(process.env.backendUrl + '/portfolio', {
       params: { locale },
     })
     store.commit('portfolio/set', response.data)
