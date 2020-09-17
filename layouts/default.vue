@@ -101,9 +101,14 @@
             <v-icon color="white" class="mr-1">mail</v-icon>{{ email }}
           </a>
 
-          <div class="mt-8 caption text-center">
+          <a
+            href="https://github.com/ArthurSiqueiraS/portfolio"
+            target="_blank"
+            class="mt-8 caption text-center white--text d-flex align-center"
+          >
+            <v-icon small color="white" class="mr-1">{{ mdiGithub }}</v-icon>
             {{ $t('madeWith') }}
-          </div>
+          </a>
         </div>
       </v-footer>
     </div>
@@ -117,6 +122,7 @@ export default {
   data() {
     return {
       landing: this.$route.name.includes('index'),
+      mdiGithub,
     }
   },
   computed: {

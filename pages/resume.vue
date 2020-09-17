@@ -44,7 +44,7 @@ export default {
 <style lang="scss">
 @media print {
   #resume-container {
-    padding: 0 !important;
+    padding: 36px 40px 0 !important;
   }
 
   #resume {
