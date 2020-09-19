@@ -3,14 +3,13 @@
     <v-card
       v-for="(highlight, index) in highlights"
       :key="index"
-      class="d-flex my-0 my-sm-8 align-center"
-      :class="even(index) ? '' : 'flex-row-reverse'"
+      class="d-flex flex-column flex-md-row my-0 my-sm-8 align-center"
+      :class="even(index) ? '' : 'flex-md-row-reverse'"
       tile
       flat
       :height="mobile ? '' : '200px'"
     >
       <v-img
-        v-if="!mobile && highlight.image"
         :height="$vuetify.breakpoint.smOnly ? '75%' : '100%'"
         width="auto"
         :style="{
@@ -18,7 +17,8 @@
           maxWidth: '300px',
         }"
         :src="highlight.image"
-        :class="even(index) ? 'mr-8' : 'ml-8'"
+        class="mt-2 mt-md-0"
+        :class="even(index) ? 'mr-md-8' : 'ml-md-8'"
       />
       <div
         class="py-8 text-center"
@@ -63,7 +63,7 @@ export default {
   },
   computed: {
     mobile() {
-      return this.$vuetify.breakpoint.xsOnly
+      return this.$vuetify.breakpoint.smAndDown
     },
   },
   methods: {

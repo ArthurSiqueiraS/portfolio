@@ -21,7 +21,7 @@
       {{ project.title }}
     </div>
     <v-row no-gutters class="accent--text pa-4" align="center">
-      <v-col cols="12" md="3" class="text-center">
+      <v-col cols="12" md="3" class="text-center pb-6 mb-md-0">
         <a
           :href="project.url"
           target="_blank"

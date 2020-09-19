@@ -29,7 +29,7 @@
         max-width="50%"
         :src="require('@/assets/images/portfolio_logo.svg')"
       />
-      <div class="accent--text text-center text-uppercase mt-10 mb-4 mx-4">
+      <div class="accent--text text-center text-uppercase mt-10 mb-4 mx-md-4">
         <h1>
           Arthur Siqueira
         </h1>

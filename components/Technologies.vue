@@ -11,7 +11,7 @@
           <a
             :href="tech.link"
             target="_blank"
-            class="d-flex justify-center align-center flex-column my-8 accent--text"
+            class="d-flex justify-center align-center flex-column text-center my-8 accent--text"
           >
             <v-img height="48" contain :src="tech.logo" />
             <span class="mt-2">{{ tech.name }}</span>
