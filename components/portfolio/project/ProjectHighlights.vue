@@ -10,6 +10,7 @@
       :height="mobile ? '' : '200px'"
     >
       <v-img
+        v-if="highlight.image"
         :height="$vuetify.breakpoint.smOnly ? '75%' : '100%'"
         width="auto"
         :style="{
