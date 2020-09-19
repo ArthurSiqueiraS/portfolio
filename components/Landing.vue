@@ -27,7 +27,7 @@
     >
       <v-img
         max-width="50%"
-        :src="require('@/assets/images/portfolio_logo.png')"
+        :src="require('@/assets/images/portfolio_logo.svg')"
       />
       <div class="accent--text text-center text-uppercase mt-10 mb-4 mx-4">
         <h1>

@@ -16,7 +16,7 @@
       >
         <img
           height="30px"
-          :src="require('@/assets/images/portfolio_logo.png')"
+          :src="require('@/assets/images/portfolio_logo.svg')"
         />
       </n-link>
       <v-spacer />
@@ -71,7 +71,7 @@
           <v-img
             width="100"
             class="mb-5"
-            :src="require('@/assets/images/portfolio_logo.png')"
+            :src="require('@/assets/images/portfolio_logo.svg')"
           />
           <div class="title mb-2">{{ $t('findMe') }}</div>
           <div id="networks">
