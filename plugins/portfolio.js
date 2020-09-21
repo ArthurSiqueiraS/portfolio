@@ -1,4 +1,4 @@
-export default function ({ store, app, $axios }, inject) {
+export default function ({ store, app, $axios, $vuetify }, inject) {
   async function fetchPortfolio(locale) {
     const response = await $axios.get(process.env.backendUrl + '/portfolio', {
       params: { locale },
@@ -12,5 +12,10 @@ export default function ({ store, app, $axios }, inject) {
 
   inject('portfolio', () => {
     return store.state.portfolio.data
+  })
+
+  inject('logo', () => {
+    const theme = $vuetify.theme.isDark ? 'dark' : 'light'
+    return store.state.portfolio.logo[theme]
   })
 }

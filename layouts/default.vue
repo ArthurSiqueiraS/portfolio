@@ -14,10 +14,7 @@
         :to="localePath('/')"
         class="d-flex"
       >
-        <img
-          height="30px"
-          :src="require('@/assets/images/portfolio_logo.svg')"
-        />
+        <img height="30px" :src="$logo()" />
       </n-link>
       <v-spacer />
       <div class="d-flex align-center">
@@ -68,11 +65,7 @@
       >
         <!-- <span>&copy; {{ new Date().getFullYear() }}</span> -->
         <div class="d-flex flex-column align-center">
-          <v-img
-            width="100"
-            class="mb-5"
-            :src="require('@/assets/images/portfolio_logo.svg')"
-          />
+          <v-img width="100" class="mb-5" :src="$logo()" />
           <div class="title mb-2">{{ $t('findMe') }}</div>
           <div id="networks">
             <v-tooltip

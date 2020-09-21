@@ -25,10 +25,7 @@
       "
       class="d-flex flex-column align-center"
     >
-      <v-img
-        max-width="50%"
-        :src="require('@/assets/images/portfolio_logo.svg')"
-      />
+      <v-img max-width="50%" :src="$logo()" />
       <div class="accent--text text-center text-uppercase mt-10 mb-4 mx-md-4">
         <h1>
           Arthur Siqueira
