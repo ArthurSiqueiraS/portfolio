@@ -11,6 +11,12 @@ function years(date) {
 const age = years(new Date(1998, 3, 13))
 const experience = years(new Date(2018, 5, 1))
 export default {
+  navItems: {
+    about: 'Sobre mim',
+    portfolio: 'Portfólio',
+    technologies: 'Tecnologias',
+    resume: 'Currículo',
+  },
   viewResume: 'Veja meu currículo',
   findMe: 'Encontre-me em:',
   animations: 'Animações',
@@ -20,6 +26,8 @@ export default {
     Cheque o meu currículo para mais detalhes sobre minha experiência de trabalho, ou navegue pelo meu portfólio de projetos logo abaixo para uma apresentação mais prática.
     Se você gostaria de entrar em contato ou conhecer melhor meu perfil profissional, conecte-se comigo no Linkedin ou me envie um email!`,
   pastWork: 'Portfólio de projetos',
+  portfolioTip: 'Coloque seu cursor sobre a imagem para revelar mais detalhes',
+  portfolioTipMobile: 'Clique na imagem para revelar mais detalhes',
   details: 'Ver mais',
   highlights: 'Destaques',
   technologiesUsed: 'Tecnologias utilizadas',

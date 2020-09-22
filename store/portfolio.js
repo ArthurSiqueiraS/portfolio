@@ -7,11 +7,15 @@ export const state = () => ({
     light: logoLight,
     dark: logoDark,
   },
+  animations: false,
 })
 
 export const mutations = {
   set(state, portfolio) {
     state.data = { ...portfolio }
+  },
+  setAnimations(state, value) {
+    state.animations = value
   },
 }
 

@@ -1,22 +1,8 @@
 <template>
   <v-sheet id="landing" style="position: relative;">
     <div
-      class="d-flex align-center ml-2 mt-3"
-      style="position: absolute; z-index: 999;"
-    >
-      <StandardButton class="px-0" @click="animations = !animations">
-        <v-switch
-          v-model="animations"
-          readonly
-          hide-details
-          dense
-          class="ma-0"
-        />
-        {{ $t('animations') }}
-      </StandardButton>
-    </div>
-    <div
       style="
+        width: 100%;
         position: absolute;
         left: 50%;
         top: 55%;
@@ -26,7 +12,7 @@
       class="d-flex flex-column align-center"
     >
       <v-img
-        :width="$vuetify.breakpoint.mobile ? '175px' : '200px'"
+        :width="$vuetify.breakpoint.mobile ? '150px' : '200px'"
         :src="$logo()"
       />
       <div class="accent--text text-center text-uppercase mt-10 mb-4 mx-md-4">
@@ -67,7 +53,6 @@ export default {
   data() {
     return {
       key: 0,
-      animations: !this.$getCookie('static_landing'),
       staticBackgroundLight: require('@/assets/images/static_landing_light.png'),
       staticBackgroundDark: require('@/assets/images/static_landing_dark.png'),
     }
@@ -79,17 +64,13 @@ export default {
     darkTheme() {
       return this.$vuetify.theme.dark
     },
+    animations() {
+      return this.$store.state.portfolio.animations
+    },
   },
   watch: {
     darkTheme() {
       this.key++
-    },
-    animations(on) {
-      if (on) {
-        this.$deleteCookie('static_landing')
-      } else {
-        this.$setCookie('static_landing', true)
-      }
     },
   },
 }

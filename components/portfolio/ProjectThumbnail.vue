@@ -17,6 +17,7 @@
         transition: '1s',
         top: hover && details ? '0' : '-100%',
       }"
+      v-on="$listeners"
       @click="toggleDetails"
     >
       <div
@@ -68,9 +69,9 @@
           <v-dialog v-model="detailsDialog" max-width="800px">
             <template v-slot:activator="{ on }">
               <v-btn
-                width="100px"
+                width="150px"
                 small
-                outlined
+                depressed
                 :color="darkTheme ? 'primary' : 'accent'"
                 class="rounded-lg"
                 v-on="on"
@@ -83,11 +84,12 @@
           </v-dialog>
           <v-btn
             v-if="project.url"
-            width="100px"
+            width="150px"
             small
             :color="darkTheme ? 'primary' : 'accent'"
-            depressed
-            class="secondary--text rounded-lg ml-1"
+            rounded
+            outlined
+            class="rounded-lg ml-1"
             :href="project.url"
             target="_blank"
             >Site</v-btn

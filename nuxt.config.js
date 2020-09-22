@@ -62,6 +62,7 @@ export default {
     '@/plugins/representers',
     '@/plugins/vueParticles',
     '@/plugins/cookieFactory',
+    '@/plugins/observeVisibility',
     '@/plugins/portfolio',
   ],
   /*

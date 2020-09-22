@@ -1,8 +1,26 @@
 <template>
   <div class="text-center d-flex flex-column">
     <h1 class="accent--text mx-4">{{ $t('pastWork') }}</h1>
+    <v-tooltip
+      v-if="firstTip"
+      v-model="portfolioTip"
+      top
+      activator="#project-thumbnail-0"
+    >
+      <span @click="portfolioTip = false">
+        {{ $t(mobile ? 'portfolioTipMobile' : 'portfolioTip') }}
+      </span>
+    </v-tooltip>
     <carousel3d
       ref="carousel"
+      v-observe-visibility="{
+        callback: triggerPortfolioTip,
+        once: true,
+        throttle: 1000,
+        intersection: {
+          threshold: 1.0,
+        },
+      }"
       :controls-visible="mobile"
       :min-swipe-distance="60"
       width="350"
@@ -12,6 +30,7 @@
     >
       <slide
         v-for="(project, index) in projects"
+        :id="'project-thumbnail-' + index"
         :key="index"
         :index="index"
         class="rounded-xl"
@@ -23,6 +42,7 @@
         <ProjectThumbnail
           :project="project"
           :disabled="currentSlide != index"
+          @mouseover="firstTip = false"
         />
       </slide>
     </carousel3d>
@@ -57,6 +77,8 @@ export default {
   data() {
     return {
       currentSlide: 0,
+      portfolioTip: false,
+      firstTip: true,
     }
   },
   computed: {
@@ -67,9 +89,21 @@ export default {
       return this.$portfolio().projects
     },
   },
+  watch: {
+    portfolioTip(value) {
+      if (!value) {
+        setTimeout(() => {
+          this.firstTip = false
+        }, 200)
+      }
+    },
+  },
   methods: {
     onSlideChange(index) {
       this.currentSlide = index
+    },
+    triggerPortfolioTip(visible) {
+      this.portfolioTip = visible
     },
   },
 }

@@ -1,23 +1,53 @@
 <template>
   <v-app>
-    <v-toolbar
-      id="toolbar"
-      class="hide-print"
-      color="transparent"
-      absolute
-      width="100%"
-      flat
-      :style="{ zIndex: landing && 999 }"
+    <v-row
+      no-gutters
+      class="hide-print pa-4"
+      :style="{ position: 'absolute', width: '100%', zIndex: landing && 999 }"
     >
-      <n-link
-        v-if="$route.path != '/' && $route.path != '/pt'"
-        :to="localePath('/')"
-        class="d-flex"
+      <v-col cols="6" md="2">
+        <StandardButton
+          v-if="home"
+          class="px-0"
+          @click="animations = !animations"
+        >
+          <v-switch
+            v-model="animations"
+            readonly
+            hide-details
+            dense
+            class="ma-0"
+          />
+          {{ $t('animations') }}
+        </StandardButton>
+        <n-link v-else :to="localePath('/')" class="d-flex">
+          <img height="40px" :src="$logo()" />
+        </n-link>
+      </v-col>
+      <v-col
+        cols="12"
+        md="8"
+        style="width: 100%; height: 100%;"
+        class="d-flex order-last order-md-0 justify-center align-center mt-4 mt-md-0"
       >
-        <img height="30px" :src="$logo()" />
-      </n-link>
-      <v-spacer />
-      <div class="d-flex align-center">
+        <div v-if="home">
+          <StandardButton
+            v-for="item in navigationMenu"
+            :key="item.id"
+            :small="$vuetify.breakpoint.xsOnly"
+            @click="navigate(item)"
+          >
+            {{ $t('navItems.' + item.id) }}
+          </StandardButton>
+          <StandardButton
+            :small="$vuetify.breakpoint.xsOnly"
+            :to="localePath('/resume')"
+          >
+            {{ $t('navItems.resume') }}
+          </StandardButton>
+        </div>
+      </v-col>
+      <v-col cols="6" md="2" class="d-flex align-center justify-end">
         <v-menu>
           <template v-slot:activator="{ on }">
             <v-tooltip color="primary" left>
@@ -52,8 +82,8 @@
           </template>
           {{ $t('changeTheme') }}
         </v-tooltip>
-      </div>
-    </v-toolbar>
+      </v-col>
+    </v-row>
     <v-main>
       <nuxt />
     </v-main>
@@ -116,9 +146,16 @@ export default {
     return {
       landing: this.$route.name.includes('index'),
       mdiGithub,
+      animations: !this.$getCookie('static_landing'),
     }
   },
   computed: {
+    home() {
+      return this.$route.path === '/' || this.$route.path === '/pt'
+    },
+    navigationMenu() {
+      return [{ id: 'about' }, { id: 'portfolio' }, { id: 'technologies' }]
+    },
     darkTheme() {
       return this.$vuetify.theme.dark
     },
@@ -158,18 +195,28 @@ export default {
       ]
     },
   },
+  watch: {
+    animations: {
+      immediate: true,
+      handler(on) {
+        this.$setAnimations(on)
+      },
+    },
+  },
   methods: {
     changeTheme() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark
       this.$setCookie('theme', this.darkTheme ? 'dark' : 'light')
     },
+    navigate(link) {
+      const el = document.getElementById(link.id)
+      if (el) {
+        el.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        })
+      }
+    },
   },
 }
 </script>
-<style lang="scss">
-#toolbar {
-  .v-input__slot {
-    background: transparent;
-  }
-}
-</style>

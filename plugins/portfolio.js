@@ -18,4 +18,14 @@ export default function ({ store, app, $axios, $vuetify }, inject) {
     const theme = $vuetify.theme.isDark ? 'dark' : 'light'
     return store.state.portfolio.logo[theme]
   })
+
+  inject('setAnimations', (on) => {
+    store.commit('portfolio/setAnimations', on)
+
+    if (on) {
+      app.$deleteCookie('static_landing')
+    } else {
+      app.$setCookie('static_landing', true)
+    }
+  })
 }
