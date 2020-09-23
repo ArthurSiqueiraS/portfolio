@@ -42,7 +42,11 @@
         <ProjectThumbnail
           :project="project"
           :disabled="currentSlide != index"
-          @mouseover="firstTip = false"
+          @mouseover="
+            () => {
+              if (currentSlide == index) firstTip = false
+            }
+          "
         />
       </slide>
     </carousel3d>
