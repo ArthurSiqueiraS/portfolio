@@ -3,11 +3,11 @@
     <v-row
       no-gutters
       class="hide-print pa-4"
-      :style="{ position: 'absolute', width: '100%', zIndex: landing && 999 }"
+      style="position: absolute; width: 100%; z-index: 999;"
     >
       <v-col cols="6" md="2">
         <StandardButton
-          v-if="home"
+          v-if="landing"
           class="px-0"
           @click="animations = !animations"
         >
@@ -28,9 +28,9 @@
         cols="12"
         md="8"
         style="width: 100%; height: 100%;"
-        class="d-flex order-last order-md-0 justify-center align-center mt-4 mt-md-0"
+        class="order-last order-md-0 mt-4 mt-md-0"
       >
-        <div v-if="home">
+        <div v-if="landing" class="d-flex justify-center flex-wrap">
           <StandardButton
             v-for="item in navigationMenu"
             :key="item.id"
@@ -144,14 +144,13 @@ import { mdiGithub, mdiGitlab, mdiLinkedin, mdiInstagram } from '@mdi/js'
 export default {
   data() {
     return {
-      landing: this.$route.name.includes('index'),
       mdiGithub,
       animations: !this.$getCookie('static_landing'),
     }
   },
   computed: {
-    home() {
-      return this.$route.path === '/' || this.$route.path === '/pt'
+    landing() {
+      return this.$route.name.includes('index')
     },
     navigationMenu() {
       return [{ id: 'about' }, { id: 'portfolio' }, { id: 'technologies' }]

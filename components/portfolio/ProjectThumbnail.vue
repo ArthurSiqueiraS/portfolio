@@ -78,6 +78,14 @@
                 >{{ $t('details') }}</v-btn
               >
             </template>
+            <div
+              style="position: absolute; top: 0; left: 0; width: 100%;"
+              class="d-flex justify-end pa-2"
+            >
+              <v-btn icon @click="detailsDialog = false">
+                <v-icon color="white">close</v-icon>
+              </v-btn>
+            </div>
             <v-sheet tile width="100%" height="100%">
               <ProjectDetails :project="project" />
             </v-sheet>
