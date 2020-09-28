@@ -11,7 +11,7 @@
       "
       class="d-flex flex-column align-center"
     >
-      <v-img
+      <img
         :width="$vuetify.breakpoint.mobile ? '150px' : '200px'"
         :src="$logo()"
       />

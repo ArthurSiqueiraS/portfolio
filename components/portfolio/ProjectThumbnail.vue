@@ -117,16 +117,16 @@
         style="height: 100%; position: relative;"
         class="d-flex align-center justify-center"
       >
-        <v-img
+        <img
           height="50%"
           width="auto"
-          contain
           :src="project.logo"
           :style="{
             position: 'absolute',
             zIndex: 1,
             filter: 'drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.75)',
             maxWidth: '70%',
+            objectFit: 'contain',
           }"
         />
         <v-img

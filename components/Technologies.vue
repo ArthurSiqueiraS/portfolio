@@ -13,7 +13,7 @@
             target="_blank"
             class="d-flex justify-center align-center flex-column text-center my-8 accent--text"
           >
-            <v-img height="48" contain :src="tech.logo" />
+            <img height="48" :src="tech.logo" />
             <span class="mt-2">{{ tech.name }}</span>
           </a>
         </v-col>
