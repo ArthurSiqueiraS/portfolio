@@ -22,7 +22,7 @@ export default {
   animations: 'Animações',
   chooseLanguage: 'Escolher idioma',
   changeTheme: 'Alternar tema',
-  callToAction: `Olá! Meu nome é Arthur, tenho ${age} anos e trabalho com desenvolvimento web há ${experience} anos.
+  callToAction: `Olá! Meu nome é Arthur, tenho ${age} anos e trabalho com desenvolvimento de software há ${experience} anos.
     Cheque o meu currículo para mais detalhes sobre minha experiência de trabalho, ou navegue pelo meu portfólio de projetos logo abaixo para uma apresentação mais prática.
     Se você gostaria de entrar em contato ou conhecer melhor meu perfil profissional, conecte-se comigo no Linkedin ou me envie um email!`,
   pastWork: 'Portfólio de projetos',

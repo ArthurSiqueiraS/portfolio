@@ -22,7 +22,7 @@ export default {
   animations: 'Animations',
   chooseLanguage: 'Choose language',
   changeTheme: 'Change theme',
-  callToAction: `Hi! My name is Arthur, I am ${age} years old and I've been working with web development for ${experience} years.
+  callToAction: `Hi! My name is Arthur, I am ${age} years old and I've been working with software development for ${experience} years.
     Check out my resume for more details on my work experience, or browse through my projects portfolio right below for a more practical presentation.
     If you wanna get in touch or get to know more about my professional profile, connect with me on Linkedin or send me an email!`,
   pastWork: 'Projects portfolio',
