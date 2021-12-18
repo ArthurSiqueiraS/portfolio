@@ -25,7 +25,7 @@
           darkTheme ? 'secondary accent--text' : 'primary secondary--text'
         "
         class="pa-2 d-flex flex-column text-center justify-center"
-        style="height: 100%; width: 100%;"
+        style="height: 100%; width: 100%"
       >
         <div
           class="secondary--text rounded-pill subtitle-1 pa-1"
@@ -78,19 +78,14 @@
                 >{{ $t('details') }}</v-btn
               >
             </template>
-            <v-sheet
-              tile
-              width="100%"
-              height="100%"
-              style="position: relative;"
-            >
+            <v-sheet tile width="100%" height="100%" style="position: relative">
               <div
-                style="position: absolute; width: 100%;"
+                style="position: absolute; width: 100%"
                 class="d-flex justify-end"
               >
                 <v-btn
                   icon
-                  style="z-index: 999; position: fixed;"
+                  style="z-index: 999; position: fixed"
                   @click="detailsDialog = false"
                 >
                   <v-icon>close</v-icon>
@@ -114,7 +109,7 @@
         </div>
       </div>
       <div
-        style="height: 100%; position: relative;"
+        style="height: 100%; position: relative"
         class="d-flex align-center justify-center"
       >
         <img

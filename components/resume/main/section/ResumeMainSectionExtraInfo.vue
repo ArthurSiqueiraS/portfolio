@@ -5,7 +5,7 @@
       :key="group"
       :title="group"
     >
-      <ResumeMainItem
+      <ResumeMainSectionItem
         v-for="item in items"
         :key="item.id"
         :title="item.title"
@@ -15,7 +15,7 @@
         :continuous="item.continuous"
       >
         {{ item.summary }}
-      </ResumeMainItem>
+      </ResumeMainSectionItem>
     </ResumeMainColumn>
   </div>
 </template>

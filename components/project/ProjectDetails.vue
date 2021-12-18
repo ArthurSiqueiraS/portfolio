@@ -30,7 +30,7 @@
           <img
             :src="project.logo"
             height="auto"
-            style="max-width: 80%; max-height: 125px;"
+            style="max-width: 80%; max-height: 125px"
           />
         </a>
       </v-col>

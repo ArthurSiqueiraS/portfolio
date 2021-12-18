@@ -5,9 +5,9 @@
         {{ paragraph }}<br />
       </div>
     </ResumeMainColumn>
-    <ResumeExperience />
-    <ResumeEducation />
-    <ResumeExtraInfo />
+    <ResumeMainSectionExperience />
+    <ResumeMainSectionEducation />
+    <ResumeMainSectionExtraInfo />
   </div>
 </template>
 <script>

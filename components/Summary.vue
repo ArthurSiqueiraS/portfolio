@@ -10,7 +10,7 @@
           <v-avatar size="200">
             <V-img
               :gradient="$helpers.imageGradient(0.75)"
-              :src="require('@/assets/images/landing_profile.jpg')"
+              :src="require('@/assets/images/landing_profile.png')"
             />
           </v-avatar>
         </v-col>

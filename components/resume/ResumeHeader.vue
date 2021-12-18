@@ -14,7 +14,7 @@
       class="text-right mt-8 mt-md-0 d-flex justify-end hide-print"
     >
       <v-hover v-slot:default="{ hover }">
-        <div style="width: 200px;">
+        <div style="width: 200px">
           <div
             v-if="disabledPrint"
             class="error--text caption mb-2 text-center"

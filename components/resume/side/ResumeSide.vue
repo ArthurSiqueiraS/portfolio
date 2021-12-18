@@ -1,7 +1,7 @@
 <template>
   <div>
-    <ResumeContact />
-    <ResumeSkills />
-    <ResumeLanguages />
+    <ResumeSideSectionContact />
+    <ResumeSideSectionSkills />
+    <ResumeSideSectionLanguages />
   </div>
 </template>

@@ -3,7 +3,7 @@
     <v-col
       id="resume"
       cols="12"
-      style="max-width: 954px;"
+      style="max-width: 954px"
       class="py-12 px-4 px-md-12"
     >
       <ResumeHeader class="mb-8" />

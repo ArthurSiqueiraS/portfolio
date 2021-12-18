@@ -1,6 +1,6 @@
 <template>
   <ResumeMainColumn :title="$t('resume.education')">
-    <ResumeMainItem
+    <ResumeMainSectionItem
       v-for="item in education"
       :key="item.id"
       :title="`${item.course}, ${item.title}`"
@@ -9,7 +9,7 @@
       :end-date="item.end_date"
     >
       {{ item.summary }}
-    </ResumeMainItem>
+    </ResumeMainSectionItem>
   </ResumeMainColumn>
 </template>
 <script>

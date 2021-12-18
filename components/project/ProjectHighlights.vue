@@ -28,14 +28,14 @@
         <div class="title pb-4 primary--text">
           <v-icon
             v-show="even(index)"
-            style="bottom: 2px;"
+            style="bottom: 2px"
             color="accent"
             left
             >{{ highlight.icon }}</v-icon
           >{{ highlight.title
           }}<v-icon
             v-show="!even(index)"
-            style="bottom: 2px;"
+            style="bottom: 2px"
             color="accent"
             right
             >{{ highlight.icon }}</v-icon

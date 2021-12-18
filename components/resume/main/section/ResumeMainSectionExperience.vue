@@ -1,6 +1,6 @@
 <template>
   <ResumeMainColumn :title="$t('resume.experience')">
-    <ResumeMainItem
+    <ResumeMainSectionItem
       v-for="job in experience"
       :key="job.id"
       :title="job.employer.name"
@@ -9,7 +9,7 @@
       :end-date="job.end_date"
     >
       {{ job.summary }}
-    </ResumeMainItem>
+    </ResumeMainSectionItem>
   </ResumeMainColumn>
 </template>
 <script>

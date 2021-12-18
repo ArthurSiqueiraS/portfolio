@@ -9,7 +9,6 @@ export default async function ({ app, store, $axios }) {
       'Adobe Photoshop',
     ]
   })
-  console.log('t', process.env.backendUrl)
   const response = await $axios.get(process.env.backendUrl + '/portfolio', {
     params: { locale: app.i18n.locale },
   })

@@ -1,5 +1,5 @@
 <template>
-  <v-sheet id="landing" style="position: relative;">
+  <v-sheet id="landing" style="position: relative">
     <div
       style="
         width: 100%;
@@ -16,17 +16,15 @@
         :src="$logo()"
       />
       <div class="accent--text text-center text-uppercase mt-10 mb-4 mx-md-4">
-        <h1>
-          Arthur Siqueira
-        </h1>
+        <h1>Arthur Siqueira</h1>
         <h2>{{ $portfolio().title }}</h2>
       </div>
     </div>
-    <div style="height: 100vh;">
+    <div style="height: 100vh">
       <vue-particles
         v-if="animations"
         :key="key"
-        style="height: 100%;"
+        style="height: 100%"
         class="secondary"
         :color="this.$vuetify.theme.currentTheme.primary"
         :particle-opacity="darkTheme ? 0.6 : 0.3"

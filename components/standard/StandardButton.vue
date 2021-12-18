@@ -1,7 +1,7 @@
 <template>
   <v-hover v-slot:default="{ hover }">
     <v-btn
-      style="min-width: 0;"
+      style="min-width: 0"
       class="standard-button"
       v-bind="$attrs"
       :color="hover ? textHoverColor : textColor"

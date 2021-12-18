@@ -3,7 +3,7 @@
     <v-row
       no-gutters
       class="hide-print pa-4"
-      style="position: absolute; width: 100%; z-index: 999;"
+      style="position: absolute; width: 100%; z-index: 999"
     >
       <v-col cols="6" md="2">
         <StandardButton
@@ -27,7 +27,7 @@
       <v-col
         cols="12"
         md="8"
-        style="width: 100%; height: 100%;"
+        style="width: 100%; height: 100%"
         class="order-last order-md-0 mt-4 mt-md-0"
       >
         <div v-if="landing" class="d-flex justify-center flex-wrap">
@@ -75,9 +75,7 @@
         <v-tooltip color="primary" left>
           <template v-slot:activator="{ on }">
             <StandardButton class="px-1 mx-2" v-on="on" @click="changeTheme">
-              <v-icon :small="$vuetify.breakpoint.xsOnly">
-                wb_sunny
-              </v-icon>
+              <v-icon :small="$vuetify.breakpoint.xsOnly"> wb_sunny </v-icon>
             </StandardButton>
           </template>
           {{ $t('changeTheme') }}
