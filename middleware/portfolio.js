@@ -2,10 +2,10 @@ export default async function ({ app, store, $axios }) {
   $axios.onRequest((config) => {
     config.params.frontPageTechnologies = [
       'Vue.js',
-      'Nuxt.js',
       'React.js',
       'Ruby on Rails',
-      'MongoDB',
+      'Git',
+      'Nuxt.js',
       'Adobe Photoshop',
     ]
   })

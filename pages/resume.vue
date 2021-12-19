@@ -8,19 +8,12 @@
     >
       <ResumeHeader class="mb-8" />
       <v-divider class="primary" />
-      <v-row no-gutters>
+      <v-row no-gutters :class="mobile && 'flex-column'">
         <v-col cols="12" sm="8" class="py-2 pr-sm-12">
           <ResumeMain />
         </v-col>
-        <v-col
-          cols="12"
-          sm="4"
-          class="px-8 py-4"
-          :style="{
-            borderLeft: mobile ? null : sideBorder,
-            borderTop: mobile ? sideBorder : null,
-          }"
-        >
+        <v-divider :vertical="!mobile" class="primary" />
+        <v-col cols="12" sm="4" class="px-8 py-4">
           <ResumeSide />
         </v-col>
       </v-row>
