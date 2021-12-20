@@ -46,6 +46,7 @@ export default {
         name: 'description',
         content: 'Full-stack Developer Portfolio',
       },
+      { hid: 'og:image', property: 'og:image', content: 'https://portfolio-arthur-siqueira.s3.sa-east-1.amazonaws.com/portfolio_ogimage.jpg' }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
