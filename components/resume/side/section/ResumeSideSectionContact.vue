@@ -10,6 +10,7 @@
           v-if="contact.url"
           :href="contact.url"
           :target="$vuetify.breakpoint.mobile ? null : '_blank'"
+          class="font-weight-bold"
         >
           {{ contact.text }}
         </a>

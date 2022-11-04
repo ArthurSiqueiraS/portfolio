@@ -4,19 +4,19 @@ const dev = process.env.NODE_ENV === 'development'
 
 const themes = {
   light: {
-    primary: '#41B883',
-    accent: '#35495E',
-    secondary: '#FFFFFF',
-    info: colors.teal.lighten1,
+    primary: '#1ed860',
+    accent: '#000000',
+    secondary: '#efefef',
+    info: '#000000',
     warning: colors.amber.base,
     error: colors.deepOrange.accent4,
     success: colors.green.accent3,
   },
   dark: {
-    primary: '#51c8e8',
-    accent: '#FFFFFF',
-    secondary: '#20232A',
-    info: colors.teal.lighten1,
+    primary: '#1DB954',
+    accent: '#1DB954',
+    secondary: '#191414',
+    info: '#FFFFFF',
     warning: colors.amber.base,
     error: colors.deepOrange.accent4,
     success: colors.green.accent3,
@@ -46,7 +46,12 @@ export default {
         name: 'description',
         content: 'Full-stack Developer Portfolio',
       },
-      { hid: 'og:image', property: 'og:image', content: 'https://portfolio-arthur-siqueira.s3.sa-east-1.amazonaws.com/portfolio_ogimage.jpg' }
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content:
+          'https://portfolio-arthur-siqueira.s3.sa-east-1.amazonaws.com/portfolio_ogimage.jpg',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
