@@ -32,7 +32,7 @@ export default {
   env: {
     backendUrl: dev
       ? 'http://localhost:3000'
-      : 'https://portfolio-arthur-siqueira.herokuapp.com',
+      : 'https://portfolio-backend-production-ecad.up.railway.app/',
   },
   loading: { color: themes.light.accent },
   head: {
@@ -117,7 +117,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseUrl: 'https://portfolio-arthur-siqueira.herokuapp.com',
+    baseUrl: 'https://portfolio-backend-production-ecad.up.railway.app/',
   },
   /*
    ** vuetify module configuration
