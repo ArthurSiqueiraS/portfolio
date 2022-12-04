@@ -9,8 +9,8 @@
         >
           <v-avatar size="200">
             <V-img
-              :gradient="$helpers.imageGradient(0.75)"
-              :src="require('@/assets/images/landing_profile.png')"
+              :gradient="$helpers.imageGradient(0.35)"
+              :src="require('@/assets/images/profile.jpg')"
             />
           </v-avatar>
         </v-col>
